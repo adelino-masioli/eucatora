@@ -1,0 +1,154 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class CitiesTableTOSeeder extends Seeder
+{
+    /**
+     * Alimenta um schema de cities com as cities de Tocantins
+     * @author Cesar André (https://github.com/cesar-andre)
+     * @return void
+     */
+    public function run()
+    {
+    	DB::table('cities')->insert(['id' => 1700251, 'states_id' => 17, 'name' => 'Abreulândia']);
+		DB::table('cities')->insert(['id' => 1700301, 'states_id' => 17, 'name' => 'Aguiarnópolis']);
+		DB::table('cities')->insert(['id' => 1700350, 'states_id' => 17, 'name' => 'Aliança do Tocantins']);
+		DB::table('cities')->insert(['id' => 1700400, 'states_id' => 17, 'name' => 'Almas']);
+		DB::table('cities')->insert(['id' => 1700707, 'states_id' => 17, 'name' => 'Alvorada']);
+		DB::table('cities')->insert(['id' => 1701002, 'states_id' => 17, 'name' => 'Ananás']);
+		DB::table('cities')->insert(['id' => 1701051, 'states_id' => 17, 'name' => 'Angico']);
+		DB::table('cities')->insert(['id' => 1701101, 'states_id' => 17, 'name' => 'Aparecida do Rio Negro']);
+		DB::table('cities')->insert(['id' => 1701309, 'states_id' => 17, 'name' => 'Aragominas']);
+		DB::table('cities')->insert(['id' => 1701903, 'states_id' => 17, 'name' => 'Araguacema']);
+		DB::table('cities')->insert(['id' => 1702000, 'states_id' => 17, 'name' => 'Araguaçu']);
+		DB::table('cities')->insert(['id' => 1702109, 'states_id' => 17, 'name' => 'Araguaína']);
+		DB::table('cities')->insert(['id' => 1702158, 'states_id' => 17, 'name' => 'Araguanã']);
+		DB::table('cities')->insert(['id' => 1702208, 'states_id' => 17, 'name' => 'Araguatins']);
+		DB::table('cities')->insert(['id' => 1702307, 'states_id' => 17, 'name' => 'Arapoema']);
+		DB::table('cities')->insert(['id' => 1702406, 'states_id' => 17, 'name' => 'Arraias']);
+		DB::table('cities')->insert(['id' => 1702554, 'states_id' => 17, 'name' => 'Augustinópolis']);
+		DB::table('cities')->insert(['id' => 1702703, 'states_id' => 17, 'name' => 'Aurora do Tocantins']);
+		DB::table('cities')->insert(['id' => 1702901, 'states_id' => 17, 'name' => 'Axixá do Tocantins']);
+		DB::table('cities')->insert(['id' => 1703008, 'states_id' => 17, 'name' => 'Babaçulândia']);
+		DB::table('cities')->insert(['id' => 1703057, 'states_id' => 17, 'name' => 'Bandeirantes do Tocantins']);
+		DB::table('cities')->insert(['id' => 1703073, 'states_id' => 17, 'name' => 'Barra do Ouro']);
+		DB::table('cities')->insert(['id' => 1703107, 'states_id' => 17, 'name' => 'Barrolândia']);
+		DB::table('cities')->insert(['id' => 1703206, 'states_id' => 17, 'name' => 'Bernardo Sayão']);
+		DB::table('cities')->insert(['id' => 1703305, 'states_id' => 17, 'name' => 'Bom Jesus do Tocantins']);
+		DB::table('cities')->insert(['id' => 1703602, 'states_id' => 17, 'name' => 'Brasilândia do Tocantins']);
+		DB::table('cities')->insert(['id' => 1703701, 'states_id' => 17, 'name' => 'Brejinho de Nazaré']);
+		DB::table('cities')->insert(['id' => 1703800, 'states_id' => 17, 'name' => 'Buriti do Tocantins']);
+		DB::table('cities')->insert(['id' => 1703826, 'states_id' => 17, 'name' => 'Cachoeirinha']);
+		DB::table('cities')->insert(['id' => 1703842, 'states_id' => 17, 'name' => 'Campos Lindos']);
+		DB::table('cities')->insert(['id' => 1703867, 'states_id' => 17, 'name' => 'Cariri do Tocantins']);
+		DB::table('cities')->insert(['id' => 1703883, 'states_id' => 17, 'name' => 'Carmolândia']);
+		DB::table('cities')->insert(['id' => 1703891, 'states_id' => 17, 'name' => 'Carrasco Bonito']);
+		DB::table('cities')->insert(['id' => 1703909, 'states_id' => 17, 'name' => 'Caseara']);
+		DB::table('cities')->insert(['id' => 1704105, 'states_id' => 17, 'name' => 'Centenário']);
+		DB::table('cities')->insert(['id' => 1704600, 'states_id' => 17, 'name' => 'Chapada de Areia']);
+		DB::table('cities')->insert(['id' => 1705102, 'states_id' => 17, 'name' => 'Chapada da Natividade']);
+		DB::table('cities')->insert(['id' => 1705508, 'states_id' => 17, 'name' => 'Colinas do Tocantins']);
+		DB::table('cities')->insert(['id' => 1705557, 'states_id' => 17, 'name' => 'Combinado']);
+		DB::table('cities')->insert(['id' => 1705607, 'states_id' => 17, 'name' => 'Conceição do Tocantins']);
+		DB::table('cities')->insert(['id' => 1706001, 'states_id' => 17, 'name' => 'Couto de Magalhães']);
+		DB::table('cities')->insert(['id' => 1706100, 'states_id' => 17, 'name' => 'Cristalândia']);
+		DB::table('cities')->insert(['id' => 1706258, 'states_id' => 17, 'name' => 'Crixás do Tocantins']);
+		DB::table('cities')->insert(['id' => 1706506, 'states_id' => 17, 'name' => 'Darcinópolis']);
+		DB::table('cities')->insert(['id' => 1707009, 'states_id' => 17, 'name' => 'Dianópolis']);
+		DB::table('cities')->insert(['id' => 1707108, 'states_id' => 17, 'name' => 'Divinópolis do Tocantins']);
+		DB::table('cities')->insert(['id' => 1707207, 'states_id' => 17, 'name' => 'Dois Irmãos do Tocantins']);
+		DB::table('cities')->insert(['id' => 1707306, 'states_id' => 17, 'name' => 'Dueré']);
+		DB::table('cities')->insert(['id' => 1707405, 'states_id' => 17, 'name' => 'Esperantina']);
+		DB::table('cities')->insert(['id' => 1707553, 'states_id' => 17, 'name' => 'Fátima']);
+		DB::table('cities')->insert(['id' => 1707652, 'states_id' => 17, 'name' => 'Figueirópolis']);
+		DB::table('cities')->insert(['id' => 1707702, 'states_id' => 17, 'name' => 'Filadélfia']);
+		DB::table('cities')->insert(['id' => 1708205, 'states_id' => 17, 'name' => 'Formoso do Araguaia']);
+		DB::table('cities')->insert(['id' => 1708254, 'states_id' => 17, 'name' => 'Fortaleza do Tabocão']);
+		DB::table('cities')->insert(['id' => 1708304, 'states_id' => 17, 'name' => 'Goianorte']);
+		DB::table('cities')->insert(['id' => 1709005, 'states_id' => 17, 'name' => 'Goiatins']);
+		DB::table('cities')->insert(['id' => 1709302, 'states_id' => 17, 'name' => 'Guaraí']);
+		DB::table('cities')->insert(['id' => 1709500, 'states_id' => 17, 'name' => 'Gurupi']);
+		DB::table('cities')->insert(['id' => 1709807, 'states_id' => 17, 'name' => 'Ipueiras']);
+		DB::table('cities')->insert(['id' => 1710508, 'states_id' => 17, 'name' => 'Itacajá']);
+		DB::table('cities')->insert(['id' => 1710706, 'states_id' => 17, 'name' => 'Itaguatins']);
+		DB::table('cities')->insert(['id' => 1710904, 'states_id' => 17, 'name' => 'Itapiratins']);
+		DB::table('cities')->insert(['id' => 1711100, 'states_id' => 17, 'name' => 'Itaporã do Tocantins']);
+		DB::table('cities')->insert(['id' => 1711506, 'states_id' => 17, 'name' => 'Jaú do Tocantins']);
+		DB::table('cities')->insert(['id' => 1711803, 'states_id' => 17, 'name' => 'Juarina']);
+		DB::table('cities')->insert(['id' => 1711902, 'states_id' => 17, 'name' => 'Lagoa da Confusão']);
+		DB::table('cities')->insert(['id' => 1711951, 'states_id' => 17, 'name' => 'Lagoa do Tocantins']);
+		DB::table('cities')->insert(['id' => 1712009, 'states_id' => 17, 'name' => 'Lajeado']);
+		DB::table('cities')->insert(['id' => 1712157, 'states_id' => 17, 'name' => 'Lavandeira']);
+		DB::table('cities')->insert(['id' => 1712405, 'states_id' => 17, 'name' => 'Lizarda']);
+		DB::table('cities')->insert(['id' => 1712454, 'states_id' => 17, 'name' => 'Luzinópolis']);
+		DB::table('cities')->insert(['id' => 1712504, 'states_id' => 17, 'name' => 'Marianópolis do Tocantins']);
+		DB::table('cities')->insert(['id' => 1712702, 'states_id' => 17, 'name' => 'Mateiros']);
+		DB::table('cities')->insert(['id' => 1712801, 'states_id' => 17, 'name' => 'Maurilândia do Tocantins']);
+		DB::table('cities')->insert(['id' => 1713205, 'states_id' => 17, 'name' => 'Miracema do Tocantins']);
+		DB::table('cities')->insert(['id' => 1713304, 'states_id' => 17, 'name' => 'Miranorte']);
+		DB::table('cities')->insert(['id' => 1713601, 'states_id' => 17, 'name' => 'Monte do Carmo']);
+		DB::table('cities')->insert(['id' => 1713700, 'states_id' => 17, 'name' => 'Monte Santo do Tocantins']);
+		DB::table('cities')->insert(['id' => 1713809, 'states_id' => 17, 'name' => 'Palmeiras do Tocantins']);
+		DB::table('cities')->insert(['id' => 1713957, 'states_id' => 17, 'name' => 'Muricilândia']);
+		DB::table('cities')->insert(['id' => 1714203, 'states_id' => 17, 'name' => 'Natividade']);
+		DB::table('cities')->insert(['id' => 1714302, 'states_id' => 17, 'name' => 'Nazaré']);
+		DB::table('cities')->insert(['id' => 1714880, 'states_id' => 17, 'name' => 'Nova Olinda']);
+		DB::table('cities')->insert(['id' => 1715002, 'states_id' => 17, 'name' => 'Nova Rosalândia']);
+		DB::table('cities')->insert(['id' => 1715101, 'states_id' => 17, 'name' => 'Novo Acordo']);
+		DB::table('cities')->insert(['id' => 1715150, 'states_id' => 17, 'name' => 'Novo Alegre']);
+		DB::table('cities')->insert(['id' => 1715259, 'states_id' => 17, 'name' => 'Novo Jardim']);
+		DB::table('cities')->insert(['id' => 1715507, 'states_id' => 17, 'name' => 'Oliveira de Fátima']);
+		DB::table('cities')->insert(['id' => 1715705, 'states_id' => 17, 'name' => 'Palmeirante']);
+		DB::table('cities')->insert(['id' => 1715754, 'states_id' => 17, 'name' => 'Palmeirópolis']);
+		DB::table('cities')->insert(['id' => 1716109, 'states_id' => 17, 'name' => 'Paraíso do Tocantins']);
+		DB::table('cities')->insert(['id' => 1716208, 'states_id' => 17, 'name' => 'Paranã']);
+		DB::table('cities')->insert(['id' => 1716307, 'states_id' => 17, 'name' => 'Pau D\'Arco']);
+		DB::table('cities')->insert(['id' => 1716505, 'states_id' => 17, 'name' => 'Pedro Afonso']);
+		DB::table('cities')->insert(['id' => 1716604, 'states_id' => 17, 'name' => 'Peixe']);
+		DB::table('cities')->insert(['id' => 1716653, 'states_id' => 17, 'name' => 'Pequizeiro']);
+		DB::table('cities')->insert(['id' => 1716703, 'states_id' => 17, 'name' => 'Colméia']);
+		DB::table('cities')->insert(['id' => 1717008, 'states_id' => 17, 'name' => 'Pindorama do Tocantins']);
+		DB::table('cities')->insert(['id' => 1717206, 'states_id' => 17, 'name' => 'Piraquê']);
+		DB::table('cities')->insert(['id' => 1717503, 'states_id' => 17, 'name' => 'Pium']);
+		DB::table('cities')->insert(['id' => 1717800, 'states_id' => 17, 'name' => 'Ponte Alta do Bom Jesus']);
+		DB::table('cities')->insert(['id' => 1717909, 'states_id' => 17, 'name' => 'Ponte Alta do Tocantins']);
+		DB::table('cities')->insert(['id' => 1718006, 'states_id' => 17, 'name' => 'Porto Alegre do Tocantins']);
+		DB::table('cities')->insert(['id' => 1718204, 'states_id' => 17, 'name' => 'Porto Nacional']);
+		DB::table('cities')->insert(['id' => 1718303, 'states_id' => 17, 'name' => 'Praia Norte']);
+		DB::table('cities')->insert(['id' => 1718402, 'states_id' => 17, 'name' => 'Presidente Kennedy']);
+		DB::table('cities')->insert(['id' => 1718451, 'states_id' => 17, 'name' => 'Pugmil']);
+		DB::table('cities')->insert(['id' => 1718501, 'states_id' => 17, 'name' => 'Recursolândia']);
+		DB::table('cities')->insert(['id' => 1718550, 'states_id' => 17, 'name' => 'Riachinho']);
+		DB::table('cities')->insert(['id' => 1718659, 'states_id' => 17, 'name' => 'Rio da Conceição']);
+		DB::table('cities')->insert(['id' => 1718709, 'states_id' => 17, 'name' => 'Rio dos Bois']);
+		DB::table('cities')->insert(['id' => 1718758, 'states_id' => 17, 'name' => 'Rio Sono']);
+		DB::table('cities')->insert(['id' => 1718808, 'states_id' => 17, 'name' => 'Sampaio']);
+		DB::table('cities')->insert(['id' => 1718840, 'states_id' => 17, 'name' => 'Sandolândia']);
+		DB::table('cities')->insert(['id' => 1718865, 'states_id' => 17, 'name' => 'Santa Fé do Araguaia']);
+		DB::table('cities')->insert(['id' => 1718881, 'states_id' => 17, 'name' => 'Santa Maria do Tocantins']);
+		DB::table('cities')->insert(['id' => 1718899, 'states_id' => 17, 'name' => 'Santa Rita do Tocantins']);
+		DB::table('cities')->insert(['id' => 1718907, 'states_id' => 17, 'name' => 'Santa Rosa do Tocantins']);
+		DB::table('cities')->insert(['id' => 1719004, 'states_id' => 17, 'name' => 'Santa Tereza do Tocantins']);
+		DB::table('cities')->insert(['id' => 1720002, 'states_id' => 17, 'name' => 'Santa Terezinha do Tocantins']);
+		DB::table('cities')->insert(['id' => 1720101, 'states_id' => 17, 'name' => 'São Bento do Tocantins']);
+		DB::table('cities')->insert(['id' => 1720150, 'states_id' => 17, 'name' => 'São Félix do Tocantins']);
+		DB::table('cities')->insert(['id' => 1720200, 'states_id' => 17, 'name' => 'São Miguel do Tocantins']);
+		DB::table('cities')->insert(['id' => 1720259, 'states_id' => 17, 'name' => 'São Salvador do Tocantins']);
+		DB::table('cities')->insert(['id' => 1720309, 'states_id' => 17, 'name' => 'São Sebastião do Tocantins']);
+		DB::table('cities')->insert(['id' => 1720499, 'states_id' => 17, 'name' => 'São Valério da Natividade']);
+		DB::table('cities')->insert(['id' => 1720655, 'states_id' => 17, 'name' => 'Silvanópolis']);
+		DB::table('cities')->insert(['id' => 1720804, 'states_id' => 17, 'name' => 'Sítio Novo do Tocantins']);
+		DB::table('cities')->insert(['id' => 1720853, 'states_id' => 17, 'name' => 'Sucupira']);
+		DB::table('cities')->insert(['id' => 1720903, 'states_id' => 17, 'name' => 'Taguatinga']);
+		DB::table('cities')->insert(['id' => 1720937, 'states_id' => 17, 'name' => 'Taipas do Tocantins']);
+		DB::table('cities')->insert(['id' => 1720978, 'states_id' => 17, 'name' => 'Talismã']);
+		DB::table('cities')->insert(['id' => 1721000, 'states_id' => 17, 'name' => 'Palmas']);
+		DB::table('cities')->insert(['id' => 1721109, 'states_id' => 17, 'name' => 'Tocantínia']);
+		DB::table('cities')->insert(['id' => 1721208, 'states_id' => 17, 'name' => 'Tocantinópolis']);
+		DB::table('cities')->insert(['id' => 1721257, 'states_id' => 17, 'name' => 'Tupirama']);
+		DB::table('cities')->insert(['id' => 1721307, 'states_id' => 17, 'name' => 'Tupiratins']);
+		DB::table('cities')->insert(['id' => 1722081, 'states_id' => 17, 'name' => 'Wanderlândia']);
+		DB::table('cities')->insert(['id' => 1722107, 'states_id' => 17, 'name' => 'Xambioá']);
+    }
+}

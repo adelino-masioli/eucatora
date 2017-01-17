@@ -1,0 +1,158 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class CitiesTablePASeeder extends Seeder
+{
+    /**
+     * Alimenta um schema de cities com as cities do Pará
+     * @author Cesar André (https://github.com/cesar-andre)
+     * @return void
+     */
+    public function run()
+    {
+    DB::table('cities')->insert(['id' => 1500107, 'states_id' => 15, 'name' => 'Abaetetuba']);
+	DB::table('cities')->insert(['id' => 1500131, 'states_id' => 15, 'name' => 'Abel Figueiredo']);
+	DB::table('cities')->insert(['id' => 1500206, 'states_id' => 15, 'name' => 'Acará']);
+	DB::table('cities')->insert(['id' => 1500305, 'states_id' => 15, 'name' => 'Afuá']);
+	DB::table('cities')->insert(['id' => 1500347, 'states_id' => 15, 'name' => 'Água Azul do Norte']);
+	DB::table('cities')->insert(['id' => 1500404, 'states_id' => 15, 'name' => 'Alenquer']);
+	DB::table('cities')->insert(['id' => 1500503, 'states_id' => 15, 'name' => 'Almeirim']);
+	DB::table('cities')->insert(['id' => 1500602, 'states_id' => 15, 'name' => 'Altamira']);
+	DB::table('cities')->insert(['id' => 1500701, 'states_id' => 15, 'name' => 'Anajás']);
+	DB::table('cities')->insert(['id' => 1500800, 'states_id' => 15, 'name' => 'Ananindeua']);
+	DB::table('cities')->insert(['id' => 1500859, 'states_id' => 15, 'name' => 'Anapu']);
+	DB::table('cities')->insert(['id' => 1500909, 'states_id' => 15, 'name' => 'Augusto Corrêa']);
+	DB::table('cities')->insert(['id' => 1500958, 'states_id' => 15, 'name' => 'Aurora do Pará']);
+	DB::table('cities')->insert(['id' => 1501006, 'states_id' => 15, 'name' => 'Aveiro']);
+	DB::table('cities')->insert(['id' => 1501105, 'states_id' => 15, 'name' => 'Bagre']);
+	DB::table('cities')->insert(['id' => 1501204, 'states_id' => 15, 'name' => 'Baião']);
+	DB::table('cities')->insert(['id' => 1501253, 'states_id' => 15, 'name' => 'Bannach']);
+	DB::table('cities')->insert(['id' => 1501303, 'states_id' => 15, 'name' => 'Barcarena']);
+	DB::table('cities')->insert(['id' => 1501402, 'states_id' => 15, 'name' => 'Belém']);
+	DB::table('cities')->insert(['id' => 1501451, 'states_id' => 15, 'name' => 'Belterra']);
+	DB::table('cities')->insert(['id' => 1501501, 'states_id' => 15, 'name' => 'Benevides']);
+	DB::table('cities')->insert(['id' => 1501576, 'states_id' => 15, 'name' => 'Bom Jesus do Tocantins']);
+	DB::table('cities')->insert(['id' => 1501600, 'states_id' => 15, 'name' => 'Bonito']);
+	DB::table('cities')->insert(['id' => 1501709, 'states_id' => 15, 'name' => 'Bragança']);
+	DB::table('cities')->insert(['id' => 1501725, 'states_id' => 15, 'name' => 'Brasil Novo']);
+	DB::table('cities')->insert(['id' => 1501758, 'states_id' => 15, 'name' => 'Brejo Grande do Araguaia']);
+	DB::table('cities')->insert(['id' => 1501782, 'states_id' => 15, 'name' => 'Breu Branco']);
+	DB::table('cities')->insert(['id' => 1501808, 'states_id' => 15, 'name' => 'Breves']);
+	DB::table('cities')->insert(['id' => 1501907, 'states_id' => 15, 'name' => 'Bujaru']);
+	DB::table('cities')->insert(['id' => 1501956, 'states_id' => 15, 'name' => 'Cachoeira do Piriá']);
+	DB::table('cities')->insert(['id' => 1502004, 'states_id' => 15, 'name' => 'Cachoeira do Arari']);
+	DB::table('cities')->insert(['id' => 1502103, 'states_id' => 15, 'name' => 'Cametá']);
+	DB::table('cities')->insert(['id' => 1502152, 'states_id' => 15, 'name' => 'Canaã dos Carajás']);
+	DB::table('cities')->insert(['id' => 1502202, 'states_id' => 15, 'name' => 'Capanema']);
+	DB::table('cities')->insert(['id' => 1502301, 'states_id' => 15, 'name' => 'Capitão Poço']);
+	DB::table('cities')->insert(['id' => 1502400, 'states_id' => 15, 'name' => 'Castanhal']);
+	DB::table('cities')->insert(['id' => 1502509, 'states_id' => 15, 'name' => 'Chaves']);
+	DB::table('cities')->insert(['id' => 1502608, 'states_id' => 15, 'name' => 'Colares']);
+	DB::table('cities')->insert(['id' => 1502707, 'states_id' => 15, 'name' => 'Conceição do Araguaia']);
+	DB::table('cities')->insert(['id' => 1502756, 'states_id' => 15, 'name' => 'Concórdia do Pará']);
+	DB::table('cities')->insert(['id' => 1502764, 'states_id' => 15, 'name' => 'Cumaru do Norte']);
+	DB::table('cities')->insert(['id' => 1502772, 'states_id' => 15, 'name' => 'Curionópolis']);
+	DB::table('cities')->insert(['id' => 1502806, 'states_id' => 15, 'name' => 'Curralinho']);
+	DB::table('cities')->insert(['id' => 1502855, 'states_id' => 15, 'name' => 'Curuá']);
+	DB::table('cities')->insert(['id' => 1502905, 'states_id' => 15, 'name' => 'Curuçá']);
+	DB::table('cities')->insert(['id' => 1502939, 'states_id' => 15, 'name' => 'Dom Eliseu']);
+	DB::table('cities')->insert(['id' => 1502954, 'states_id' => 15, 'name' => 'Eldorado dos Carajás']);
+	DB::table('cities')->insert(['id' => 1503002, 'states_id' => 15, 'name' => 'Faro']);
+	DB::table('cities')->insert(['id' => 1503044, 'states_id' => 15, 'name' => 'Floresta do Araguaia']);
+	DB::table('cities')->insert(['id' => 1503077, 'states_id' => 15, 'name' => 'Garrafão do Norte']);
+	DB::table('cities')->insert(['id' => 1503093, 'states_id' => 15, 'name' => 'Goianésia do Pará']);
+	DB::table('cities')->insert(['id' => 1503101, 'states_id' => 15, 'name' => 'Gurupá']);
+	DB::table('cities')->insert(['id' => 1503200, 'states_id' => 15, 'name' => 'Igarapé-Açu']);
+	DB::table('cities')->insert(['id' => 1503309, 'states_id' => 15, 'name' => 'Igarapé-Miri']);
+	DB::table('cities')->insert(['id' => 1503408, 'states_id' => 15, 'name' => 'Inhangapi']);
+	DB::table('cities')->insert(['id' => 1503457, 'states_id' => 15, 'name' => 'Ipixuna do Pará']);
+	DB::table('cities')->insert(['id' => 1503507, 'states_id' => 15, 'name' => 'Irituia']);
+	DB::table('cities')->insert(['id' => 1503606, 'states_id' => 15, 'name' => 'Itaituba']);
+	DB::table('cities')->insert(['id' => 1503705, 'states_id' => 15, 'name' => 'Itupiranga']);
+	DB::table('cities')->insert(['id' => 1503754, 'states_id' => 15, 'name' => 'Jacareacanga']);
+	DB::table('cities')->insert(['id' => 1503804, 'states_id' => 15, 'name' => 'Jacundá']);
+	DB::table('cities')->insert(['id' => 1503903, 'states_id' => 15, 'name' => 'Juruti']);
+	DB::table('cities')->insert(['id' => 1504000, 'states_id' => 15, 'name' => 'Limoeiro do Ajuru']);
+	DB::table('cities')->insert(['id' => 1504059, 'states_id' => 15, 'name' => 'Mãe do Rio']);
+	DB::table('cities')->insert(['id' => 1504109, 'states_id' => 15, 'name' => 'Magalhães Barata']);
+	DB::table('cities')->insert(['id' => 1504208, 'states_id' => 15, 'name' => 'Marabá']);
+	DB::table('cities')->insert(['id' => 1504307, 'states_id' => 15, 'name' => 'Maracanã']);
+	DB::table('cities')->insert(['id' => 1504406, 'states_id' => 15, 'name' => 'Marapanim']);
+	DB::table('cities')->insert(['id' => 1504422, 'states_id' => 15, 'name' => 'Marituba']);
+	DB::table('cities')->insert(['id' => 1504455, 'states_id' => 15, 'name' => 'Medicilândia']);
+	DB::table('cities')->insert(['id' => 1504505, 'states_id' => 15, 'name' => 'Melgaço']);
+	DB::table('cities')->insert(['id' => 1504604, 'states_id' => 15, 'name' => 'Mocajuba']);
+	DB::table('cities')->insert(['id' => 1504703, 'states_id' => 15, 'name' => 'Moju']);
+	DB::table('cities')->insert(['id' => 1504802, 'states_id' => 15, 'name' => 'Monte Alegre']);
+	DB::table('cities')->insert(['id' => 1504901, 'states_id' => 15, 'name' => 'Muaná']);
+	DB::table('cities')->insert(['id' => 1504950, 'states_id' => 15, 'name' => 'Nova Esperança do Piriá']);
+	DB::table('cities')->insert(['id' => 1504976, 'states_id' => 15, 'name' => 'Nova Ipixuna']);
+	DB::table('cities')->insert(['id' => 1505007, 'states_id' => 15, 'name' => 'Nova Timboteua']);
+	DB::table('cities')->insert(['id' => 1505031, 'states_id' => 15, 'name' => 'Novo Progresso']);
+	DB::table('cities')->insert(['id' => 1505064, 'states_id' => 15, 'name' => 'Novo Repartimento']);
+	DB::table('cities')->insert(['id' => 1505106, 'states_id' => 15, 'name' => 'Óbidos']);
+	DB::table('cities')->insert(['id' => 1505205, 'states_id' => 15, 'name' => 'Oeiras do Pará']);
+	DB::table('cities')->insert(['id' => 1505304, 'states_id' => 15, 'name' => 'Oriximiná']);
+	DB::table('cities')->insert(['id' => 1505403, 'states_id' => 15, 'name' => 'Ourém']);
+	DB::table('cities')->insert(['id' => 1505437, 'states_id' => 15, 'name' => 'Ourilândia do Norte']);
+	DB::table('cities')->insert(['id' => 1505486, 'states_id' => 15, 'name' => 'Pacajá']);
+	DB::table('cities')->insert(['id' => 1505494, 'states_id' => 15, 'name' => 'Palestina do Pará']);
+	DB::table('cities')->insert(['id' => 1505502, 'states_id' => 15, 'name' => 'Paragominas']);
+	DB::table('cities')->insert(['id' => 1505536, 'states_id' => 15, 'name' => 'Parauapebas']);
+	DB::table('cities')->insert(['id' => 1505551, 'states_id' => 15, 'name' => 'Pau D\'Arco']);
+	DB::table('cities')->insert(['id' => 1505601, 'states_id' => 15, 'name' => 'Peixe-Boi']);
+	DB::table('cities')->insert(['id' => 1505635, 'states_id' => 15, 'name' => 'Piçarra']);
+	DB::table('cities')->insert(['id' => 1505650, 'states_id' => 15, 'name' => 'Placas']);
+	DB::table('cities')->insert(['id' => 1505700, 'states_id' => 15, 'name' => 'Ponta de Pedras']);
+	DB::table('cities')->insert(['id' => 1505809, 'states_id' => 15, 'name' => 'Portel']);
+	DB::table('cities')->insert(['id' => 1505908, 'states_id' => 15, 'name' => 'Porto de Moz']);
+	DB::table('cities')->insert(['id' => 1506005, 'states_id' => 15, 'name' => 'Prainha']);
+	DB::table('cities')->insert(['id' => 1506104, 'states_id' => 15, 'name' => 'Primavera']);
+	DB::table('cities')->insert(['id' => 1506112, 'states_id' => 15, 'name' => 'Quatipuru']);
+	DB::table('cities')->insert(['id' => 1506138, 'states_id' => 15, 'name' => 'Redenção']);
+	DB::table('cities')->insert(['id' => 1506161, 'states_id' => 15, 'name' => 'Rio Maria']);
+	DB::table('cities')->insert(['id' => 1506187, 'states_id' => 15, 'name' => 'Rondon do Pará']);
+	DB::table('cities')->insert(['id' => 1506195, 'states_id' => 15, 'name' => 'Rurópolis']);
+	DB::table('cities')->insert(['id' => 1506203, 'states_id' => 15, 'name' => 'Salinópolis']);
+	DB::table('cities')->insert(['id' => 1506302, 'states_id' => 15, 'name' => 'Salvaterra']);
+	DB::table('cities')->insert(['id' => 1506351, 'states_id' => 15, 'name' => 'Santa Bárbara do Pará']);
+	DB::table('cities')->insert(['id' => 1506401, 'states_id' => 15, 'name' => 'Santa Cruz do Arari']);
+	DB::table('cities')->insert(['id' => 1506500, 'states_id' => 15, 'name' => 'Santa Isabel do Pará']);
+	DB::table('cities')->insert(['id' => 1506559, 'states_id' => 15, 'name' => 'Santa Luzia do Pará']);
+	DB::table('cities')->insert(['id' => 1506583, 'states_id' => 15, 'name' => 'Santa Maria das Barreiras']);
+	DB::table('cities')->insert(['id' => 1506609, 'states_id' => 15, 'name' => 'Santa Maria do Pará']);
+	DB::table('cities')->insert(['id' => 1506708, 'states_id' => 15, 'name' => 'Santana do Araguaia']);
+	DB::table('cities')->insert(['id' => 1506807, 'states_id' => 15, 'name' => 'Santarém']);
+	DB::table('cities')->insert(['id' => 1506906, 'states_id' => 15, 'name' => 'Santarém Novo']);
+	DB::table('cities')->insert(['id' => 1507003, 'states_id' => 15, 'name' => 'Santo Antônio do Tauá']);
+	DB::table('cities')->insert(['id' => 1507102, 'states_id' => 15, 'name' => 'São Caetano de Odivelas']);
+	DB::table('cities')->insert(['id' => 1507151, 'states_id' => 15, 'name' => 'São Domingos do Araguaia']);
+	DB::table('cities')->insert(['id' => 1507201, 'states_id' => 15, 'name' => 'São Domingos do Capim']);
+	DB::table('cities')->insert(['id' => 1507300, 'states_id' => 15, 'name' => 'São Félix do Xingu']);
+	DB::table('cities')->insert(['id' => 1507409, 'states_id' => 15, 'name' => 'São Francisco do Pará']);
+	DB::table('cities')->insert(['id' => 1507458, 'states_id' => 15, 'name' => 'São Geraldo do Araguaia']);
+	DB::table('cities')->insert(['id' => 1507466, 'states_id' => 15, 'name' => 'São João da Ponta']);
+	DB::table('cities')->insert(['id' => 1507474, 'states_id' => 15, 'name' => 'São João de Pirabas']);
+	DB::table('cities')->insert(['id' => 1507508, 'states_id' => 15, 'name' => 'São João do Araguaia']);
+	DB::table('cities')->insert(['id' => 1507607, 'states_id' => 15, 'name' => 'São Miguel do Guamá']);
+	DB::table('cities')->insert(['id' => 1507706, 'states_id' => 15, 'name' => 'São Sebastião da Boa Vista']);
+	DB::table('cities')->insert(['id' => 1507755, 'states_id' => 15, 'name' => 'Sapucaia']);
+	DB::table('cities')->insert(['id' => 1507805, 'states_id' => 15, 'name' => 'Senador José Porfírio']);
+	DB::table('cities')->insert(['id' => 1507904, 'states_id' => 15, 'name' => 'Soure']);
+	DB::table('cities')->insert(['id' => 1507953, 'states_id' => 15, 'name' => 'Tailândia']);
+	DB::table('cities')->insert(['id' => 1507961, 'states_id' => 15, 'name' => 'Terra Alta']);
+	DB::table('cities')->insert(['id' => 1507979, 'states_id' => 15, 'name' => 'Terra Santa']);
+	DB::table('cities')->insert(['id' => 1508001, 'states_id' => 15, 'name' => 'Tomé-Açu']);
+	DB::table('cities')->insert(['id' => 1508035, 'states_id' => 15, 'name' => 'Tracuateua']);
+	DB::table('cities')->insert(['id' => 1508050, 'states_id' => 15, 'name' => 'Trairão']);
+	DB::table('cities')->insert(['id' => 1508084, 'states_id' => 15, 'name' => 'Tucumã']);
+	DB::table('cities')->insert(['id' => 1508100, 'states_id' => 15, 'name' => 'Tucuruí']);
+	DB::table('cities')->insert(['id' => 1508126, 'states_id' => 15, 'name' => 'Ulianópolis']);
+	DB::table('cities')->insert(['id' => 1508159, 'states_id' => 15, 'name' => 'Uruará']);
+	DB::table('cities')->insert(['id' => 1508209, 'states_id' => 15, 'name' => 'Vigia']);
+	DB::table('cities')->insert(['id' => 1508308, 'states_id' => 15, 'name' => 'Viseu']);
+	DB::table('cities')->insert(['id' => 1508357, 'states_id' => 15, 'name' => 'Vitória do Xingu']);
+	DB::table('cities')->insert(['id' => 1508407, 'states_id' => 15, 'name' => 'Xinguara']);
+    }
+}

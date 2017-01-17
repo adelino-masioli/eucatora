@@ -284,4 +284,14 @@ class AppHelpers {
     {
         return ProductOptionsRepository::listOptionsVariations($option_id);
     }
+
+
+    //activate_menu
+    public static function activate_menu($arrays){
+        $activate = NULL;
+        foreach($arrays as $array) {
+            $activate .= \Request::is($array) == 1 ? 'active' : '';
+        }
+        return $activate;
+    }
 }

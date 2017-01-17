@@ -196,6 +196,8 @@ return [
         App\Applications\Administration\Products\Providers\ProductsServiceProvider::class,
         App\Applications\Administration\Cities\Providers\CityServiceProvider::class,
         App\Applications\Administration\Users\Providers\UsersServiceProvider::class,
+        App\Applications\Administration\Customers\Providers\CustomersServiceProvider::class,
+        App\Applications\Administration\Providers\Providers\ProvidersServiceProvider::class,
 
     ],
 

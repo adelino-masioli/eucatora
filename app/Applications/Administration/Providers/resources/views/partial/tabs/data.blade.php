@@ -1,11 +1,11 @@
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading text-uppercase"><strong>Dados do cliente</strong></div>
+        <div class="panel-heading text-uppercase"><strong>Dados do fornecedor</strong></div>
         <div class="panel-body">
             <div class="row">
                 <div class="form-group col-lg-6">
-                    {!! Form::label('name', 'Nome completo do cliente') !!}
-                    {!! Form::text('name', null, array('id'=>'name', 'class'=>'form-control', 'placeholder'=>'Informe o nome do cliente','required')) !!}
+                    {!! Form::label('name', 'Nome completo do fornecedor') !!}
+                    {!! Form::text('name', null, array('id'=>'name', 'class'=>'form-control', 'placeholder'=>'Informe o nome do fornecedor','required')) !!}
                 </div>
                 <div class="form-group col-lg-2">
                     {!! Form::label('document_type', 'Tipo do documento') !!}

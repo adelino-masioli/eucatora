@@ -14,14 +14,12 @@ use App\Domains\Customers\Customer;
 class CustomersController extends BaseController
 {
     protected $customers;
-    protected $customer_groups;
     protected $states;
     protected $cities;
     protected $status;
 
     public function __construct() {
         $this->customers       = \App::make('App\Domains\Customers\CustomersRepositoryInterface');
-        $this->customer_groups = \App::make('App\Domains\CustomerGroups\CustomerGroupsRepositoryInterface');
         $this->states          = \App::make('App\Domains\States\StatesRepositoryInterface');
         $this->cities          = \App::make('App\Domains\Cities\CitiesRepositoryInterface');
         $this->status          = \App::make('App\Domains\Status\StatusRepositoryInterface');
@@ -39,7 +37,7 @@ class CustomersController extends BaseController
     
     public function create()
     {
-        return $this->customers->create(['status'=>$this->status->comboStatus(), 'customer_groups'=>$this->customer_groups->combo_groups(), 'states'=>$this->states->getAll()]);
+        return $this->customers->create(['status'=>$this->status->comboStatus(),  'states'=>$this->states->getAll()]);
     }
     public function store(CustomerFormRequest $request)
     {
@@ -47,7 +45,7 @@ class CustomersController extends BaseController
     }
     public function edit($id)
     {
-        return $this->customers->edit(['status'=>$this->status->comboStatus(), 'customer_groups'=>$this->customer_groups->combo_groups(), 'states'=>$this->states->getAll(), 'cities' =>$this->cities->combo_cities_by_state_id($this->customers->findRegister($id)->state_id), 'id'=>$id]);
+        return $this->customers->edit(['status'=>$this->status->comboStatus(),  'states'=>$this->states->getAll(), 'cities' =>$this->cities->combo_cities_by_state_id($this->customers->findRegister($id)->state_id), 'id'=>$id]);
     }
     public function update(CustomerFormRequest $request)
     {

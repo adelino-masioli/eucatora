@@ -7,7 +7,7 @@
     </div>
 
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active" id="tab_data">@include('customers::partial.tabs.data')</div>
-        <div role="tabpanel" class="tab-pane fade" id="tab_address">@include('customers::partial.tabs.address')</div>
+        <div role="tabpanel" class="tab-pane fade in active" id="tab_data">@include('providers::partial.tabs.data')</div>
+        <div role="tabpanel" class="tab-pane fade" id="tab_address">@include('providers::partial.tabs.address')</div>
     </div>
 </div>

@@ -14,12 +14,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{url('dashboard/providers')}}"><i class="fa fa-users" aria-hidden="true"></i> Fornecedores</a></li>
-                <li><a href="{{url('dashboard/products')}}"><i class="fa fa-cubes" aria-hidden="true"></i> Produtos</a></li>
-                <li><a href="{{url('dashboard/purchases')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Compras</a></li>
-                <li><a href="{{url('dashboard/sales')}}"><i class="fa fa-minus-circle" aria-hidden="true"></i> Vendas</a></li>
-                <li><a href="{{url('dashboard/financials')}}"><i class="fa fa-usd" aria-hidden="true"></i> Financeiro</a></li>
-                <li><a href="{{url('dashboard/customers')}}"><i class="fa fa-user" aria-hidden="true"></i> Clientes</a></li>
+                <li class="{!! AppHelper::activate_menu(array('dashboard/provider*')) !!}"><a href="{{url('dashboard/providers')}}"><i class="fa fa-users" aria-hidden="true"></i> Fornecedores</a></li>
+                <li class="{!! AppHelper::activate_menu(array('dashboard/product*')) !!}"><a href="{{url('dashboard/products')}}"><i class="fa fa-cubes" aria-hidden="true"></i> Produtos</a></li>
+                <li class="{!! AppHelper::activate_menu(array('dashboard/purchase*')) !!}"><a href="{{url('dashboard/purchases')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Compras</a></li>
+                <li class="{!! AppHelper::activate_menu(array('dashboard/sale*')) !!}"><a href="{{url('dashboard/sales')}}"><i class="fa fa-minus-circle" aria-hidden="true"></i> Vendas</a></li>
+                <li class="{!! AppHelper::activate_menu(array('dashboard/financial*')) !!}"><a href="{{url('dashboard/financials')}}"><i class="fa fa-usd" aria-hidden="true"></i> Financeiro</a></li>
+                <li class="{!! AppHelper::activate_menu(array('dashboard/customer*')) !!}"><a href="{{url('dashboard/customers')}}"><i class="fa fa-user" aria-hidden="true"></i> Clientes</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

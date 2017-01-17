@@ -1,7 +1,7 @@
 
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading text-uppercase"><strong>Endereço cliente</strong></div>
+        <div class="panel-heading text-uppercase"><strong>Endereço fornecedor</strong></div>
         <div class="panel-body" id="fields_address">
             <div class="row">
                 <div class="form-group col-lg-2">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group col-lg-3">
                     {!! Form::label('city_id', 'Cidade') !!}
-                    {!! Form::select('city_id', isset($cities) ? $cities : ['Selecione o estado'], null, array('id'=>'city_id', 'class'=>'form-control')) !!}
+                    {!! Form::select('city_id', isset($cities) ? $cities : ['' => 'Selecione o estado'], null, array('id'=>'city_id', 'class'=>'form-control')) !!}
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-body panel-sm">
                 <div class="btn-group btn-group-sm" role="group" aria-label="group-customer">
-                    <a href="{{url('dashboard/customers')}}" class="btn btn-primary text-uppercase"><i class="fa fa-plus-circle" aria-hidden="true"></i> Voltar</a>
+                    <a href="{{url('dashboard/customers')}}" class="btn btn-success text-uppercase"><i class="fa fa-plus-circle" aria-hidden="true"></i> Voltar</a>
                     <button class="btn btn-default" type="button" name="action" onclick="functionSave('#frmCustomer');"><i class="fa fa-save" aria-hidden="true"></i> Salvar</button>
                 </div>
             </div>

@@ -30,12 +30,8 @@ class CustomerFormRequest extends Request
     public function rules()
     {
         return [
-            'name'               => 'required|min:3|unique:customers,id,'.$this->input('id'),
-            'document'           => 'required|unique:customers,id,'.$this->input('id'),
-            'email'              => 'required|email|unique:customers,id,'.$this->input('id'),
-            'phone'              => 'required',
-            'celullar'           => 'required',
-            'customer_group_id'  => 'required'
+            'name'       => 'required|min:3|unique:customers,id,'.$this->input('id'),
+            'status_id'  => 'required'
         ];
 
 
@@ -46,13 +42,7 @@ class CustomerFormRequest extends Request
             'name.required'                => 'Favor informar o campo <b>NOME O CLIENTE!</b>',
             'name.min'                     => 'Favor informar o nome do clientes com mínimo <b>3 CARACTERES</b>!',
             'name.unique'                  => 'Já existe um cliente com este <b>NOME</b>!',
-            'document.required'            => 'Favor informar o campo <b>DOCUMENTO!</b>',
-            'document.unique'              => 'Já existe um documento com este <b>NÚMERO</b>!',
-            'email.required'               => 'Favor informar o campo <b>E-MAIL!</b>',
-            'email.unique'                 => 'E-mail já <b>CADASTRADO</b>!',
-            'phone.required'               => 'Favor informar o campo <b>TELEFONE!</b>',
-            'celullar.required'            => 'Favor informar o campo <b>CELULAR!</b>',
-            'customer_group_id.required'   => 'Favor selecionar o <b>GRUPO DE CLIENTES!</b>'
+            'document.required'            => 'Favor selecionar o <b>STATUS!</b>',
         ];
     }
 

@@ -7,7 +7,7 @@ class StatesRepository implements StatesRepositoryInterface
     {
         $states = States::orderBy('name')->get();
         $dataStates = array();
-        $dataStates['0'] = 'Selecione o estado';
+        $dataStates[''] = 'Selecione o estado';
         foreach ($states as $state):
             $dataStates[$state->id] = $state->name;
         endforeach;

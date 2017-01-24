@@ -14,6 +14,7 @@ interface ProductsRepositoryInterface
     public function all();
     public function autocomplete();
     public function comboProducts();
+    public function filterById($id);
     public function create($status);
     public function store($request);
     public function edit($compact=[]);

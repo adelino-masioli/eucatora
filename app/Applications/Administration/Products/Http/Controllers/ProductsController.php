@@ -58,4 +58,8 @@ class ProductsController extends BaseController
     public function autocomplete(){
         return $this->products->autocomplete();
     }
+    public function filterById($id)
+    {
+        return $this->products->filterById($id);
+    }
 }

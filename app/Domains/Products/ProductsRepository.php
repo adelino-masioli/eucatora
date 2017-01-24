@@ -69,11 +69,31 @@ class ProductsRepository implements ProductsRepositoryInterface
     {
         $lists = Product::all();
         $data = array();
-        $data[''] = 'Selecione';
+        $data['0'] = 'Selecione';
         foreach ($lists as $list):
             $data[$list->id] = '-> '.$list->name;
         endforeach;
         return $data;
+    }
+    public function filterById($id)
+    {
+        $search  = $id;
+        if(empty($search)){
+            return '[]';
+            exit();
+        }
+        $data = Product::select('id', 'name');
+        if($search!=''){
+            $data  = $data->where('id', $search);
+        }else{
+            $data= $data;
+        }
+        $count = $data->count();
+        if($count > 0){
+            return $data->get();
+        }else{
+            return '[]';
+        }
     }
 
     public function create($status)

@@ -128,6 +128,12 @@ class AppHelpers {
         $price = str_replace('.', '', $date);
         return  str_replace(',', '.', $price);
     }
+    //helper convert decial
+    public static function  decial($date)
+    {
+        $price = str_replace('.', '.', $date);
+        return  floatval($price);
+    }
     //helper define size midia
     public static function  size_midia()
     {

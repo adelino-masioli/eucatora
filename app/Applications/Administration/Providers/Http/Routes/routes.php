@@ -17,4 +17,5 @@ Route::group(['provider'], function () {
     Route::get('/provider/autocomplete', 'ProvidersController@auto_complete');
 
     Route::get('/provider/campos', 'ProvidersController@campos');
+    Route::post('/provider/search-id', 'ProvidersController@searchById');
 });

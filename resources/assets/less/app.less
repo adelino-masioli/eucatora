@@ -18,6 +18,7 @@ body{background: #f9f9f9;padding-top: 60px!important;font-family: Roboto!importa
 @brand-info:    #049EE5;
 @brand-warning: #F9CC02;
 @brand-danger:  #DD0000;
+@brand-default:  #666666;
 
 .text-primary{color:@brand-primary;}
 .text-success{color:@brand-success;}
@@ -93,8 +94,8 @@ input, textarea, select, .bootstrap-tagsinput{border-radius: 0px!important;}
 }
 //datapicker
 .datepicker table tr td.active.active, .datepicker table tr td.active.highlighted.active, .datepicker table tr td.active.highlighted:active, .datepicker table tr td.active.highlighted:hover, .datepicker table tr td.active:active, .datepicker table tr td.active:hover {
-  background-color: @brand-primary;
-  border-color: @brand-primary;
+  background-color: @brand-success-active;
+  border-color: @brand-success-active;
   color: #fff;
   border-radius: 0px;
 }
@@ -157,6 +158,9 @@ fieldset[disabled] .datepicker table tr td.active.highlighted.focus {
 .btn-trash-image:hover{color:@brand-danger;}
 
 .nav-tabs{border-bottom: 0px!important;}
+.nav-tabs a{color:@brand-success!important;}
+.nav-tabs li.active a{color:@brand-default!important;}
+
 .thumbheight{min-height: 226px!important; max-height: 226px!important; overflow: hidden;}
 #showResult .btn{font-size:13px!important;}
 //margin

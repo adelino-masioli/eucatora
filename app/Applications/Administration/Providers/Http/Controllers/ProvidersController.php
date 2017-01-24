@@ -65,4 +65,8 @@ class ProvidersController extends BaseController
     public function campos(){
         return Customer::getTableColumns();
     }
+
+    public function searchById(){
+        return $this->providers->searchById();
+    }
 }

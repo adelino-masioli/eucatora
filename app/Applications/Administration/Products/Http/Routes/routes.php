@@ -15,4 +15,5 @@ Route::group(['product'], function () {
     Route::post('/product/destroy', 'ProductsController@destroy');
     Route::post('/product/duplicate', 'ProductsController@duplicate');
     Route::get('/product/autocomplete', 'ProductsController@autocomplete');
+    Route::get('/product/filter-by-id/{id}', 'ProductsController@filterById');
 });

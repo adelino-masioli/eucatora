@@ -135,6 +135,17 @@ class HelperJs {
         ';
         echo $clone;
     }
+    public static function mask_decimal($fields = NULL) {
+        $clone = '
+                <script>
+                    $(function($){
+                        //mask decimal
+                        $("'.$fields.'").maskMoney({thousands:".",decimal:"."});
+                    });
+                </script>
+        ';
+        echo $clone;
+    }
     public static function combo_cities() {
         $clone = '<script>
                $(document).ready(function(){
@@ -149,6 +160,31 @@ class HelperJs {
                             $("#city_id").append("<option value="+subcatObj.id+">"+subcatObj.name+"</option>");
                         });
                         $("#city_id").selectpicker("refresh");
+                    });
+                });
+            });
+            </script>
+        ';
+        echo $clone;
+    }
+    public static function combo_products($url, $id) {
+        $clone = '<script>
+               $(document).ready(function(){
+                $("select#'.$id.'").change(function(){
+                    var selectedCountry = $("#'.$id.' option:selected").val();
+                    $.ajax({
+                        type: "GET",
+                        url: "'.$url.'/"+selectedCountry
+                    }).done(function(data){
+                        if(data != "[]"){
+                            $("#prod_id").empty();
+                            $.each(data, function(edit, subcatObj){                            
+                                $("#prod_id").val(subcatObj.id);
+                            });
+                        }else{
+                            $("#prod_id").val("");
+                            $("#prod_id").attr("Placeholder", "Código");
+                        }
                     });
                 });
             });

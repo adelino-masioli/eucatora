@@ -1,9 +1,9 @@
 @extends('administration::base')
 @section('body')
     {!! Form::open(array('url' => 'dashboard/purchase/store', 'id'=> 'frmPurchase', 'data-toggle'=>'validator', 'role'=>'form')) !!}
-        @include('Sales::partial.menufrm')
+        @include('purchases::partial.menufrm')
         <input type="hidden" value="reset" id="formreset" name="formreset">
-        @include('Sales::partial.frm')
+        @include('purchases::partial.frm')
     {!! Form::close() !!}
 @stop
 @push('scripts')

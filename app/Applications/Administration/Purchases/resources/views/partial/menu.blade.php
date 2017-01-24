@@ -18,12 +18,16 @@
                    <div class="col-lg-2">
                        <input type="text" class="form-control" name="id" id="id" placeholder="Código" onclick="onlyNumber('#id');">
                    </div>
-                   <div class="col-lg-6">
+                   <div class="col-lg-4">
                        <input type="text" class="form-control" name="name"  id="autoname" placeholder="Informe o nome do fornecedor">
                    </div>
 
                    <div class="col-lg-2">
-                       <input type="text" class="form-control input_datapicker" name="date"  placeholder="Data">
+                       <input type="text" class="form-control input_datapicker" name="date_initial"  placeholder="Data inicial">
+                   </div>
+
+                   <div class="col-lg-2">
+                       <input type="text" class="form-control input_datapicker" name="date_end"  placeholder="Data final">
                    </div>
 
                    <div class="col-lg-2">

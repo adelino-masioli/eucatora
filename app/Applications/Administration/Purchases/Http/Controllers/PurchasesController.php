@@ -6,63 +6,71 @@
  * Time: 19:51
  */
 
-namespace App\Applications\Administration\Sales\Http\Controllers;
+namespace App\Applications\Administration\Purchases\Http\Controllers;
 use App\Applications\Administration\Base\Http\Controllers\BaseController;
-use App\Applications\Administration\Sales\Requests\SalesFormRequest;
-use App\Applications\Administration\Sales\Requests\SalesItemFormRequest;
+use App\Applications\Administration\Purchases\Requests\PurchaseFormRequest;
+use App\Applications\Administration\Purchases\Requests\PurchaseItemFormRequest;
+use App\Applications\Administration\Purchases\Requests\PurchaseTaxFormRequest;
 
-class SalesController extends BaseController
+class PurchasesController extends BaseController
 {
-    protected $sales;
-    protected $customers;
+    protected $purchases;
+    protected $providers;
     protected $products;
     protected $status;
 
     public function __construct() {
-        $this->sales       = \App::make('App\Domains\Sales\SalesRepositoryInterface');
-        $this->customers   = \App::make('App\Domains\Customers\CustomersRepositoryInterface');
+        $this->purchases   = \App::make('App\Domains\Purchases\PurchasesRepositoryInterface');
+        $this->providers   = \App::make('App\Domains\Providers\ProvidersRepositoryInterface');
         $this->products    = \App::make('App\Domains\Products\ProductsRepositoryInterface');
         $this->status      = \App::make('App\Domains\Status\StatusRepositoryInterface');
     }
 
     public function index()
     {
-        return $this->sales->index();
+        return $this->purchases->index();
     }
     
     public function data_table() {
-        $data = $this->sales->data_table();
+        $data = $this->purchases->data_table();
         return $data;
     }
     
     public function create()
     {
-        return $this->sales->create(['customers'=>$this->customers->combo()]);
+        return $this->purchases->create(['providers'=>$this->providers->combo()]);
     }
-    public function store(SalesFormRequest $request)
+    public function store(PurchaseFormRequest $request)
     {
-        return $this->sales->store($request);
+        return $this->purchases->store($request);
     }
     public function edit($id)
     {
-        return $this->sales->edit(['status'=>$this->status->comboStatus(), 'id'=>$id, 'customers'=>$this->customers->combo(), 'products'=>$this->products->comboProducts()]);
+        return $this->purchases->edit(['status'=>$this->status->comboStatus(), 'id'=>$id, 'providers'=>$this->providers->combo(), 'products'=>$this->products->comboProducts()]);
     }
-    public function update(SalesFormRequest $request)
+    public function update(PurchaseFormRequest $request)
     {
-        return $this->sales->update($request);
+        return $this->purchases->update($request);
     }
     public function destroy()
     {
-        return $this->sales->destroy();
+        return $this->purchases->destroy();
     }
     public function auto_complete(){
-        return $this->sales->auto_complete();
+        return $this->purchases->auto_complete();
     }
 
-    public function addItem(SalesItemFormRequest $request){
-        return $this->sales->addItem($request);
+    public function addItem(PurchaseItemFormRequest $request){
+        return $this->purchases->addItem($request);
     }
     public function destroyItem(){
-        return $this->sales->destroyItem();
+        return $this->purchases->destroyItem();
+    }
+
+    public function addTax(PurchaseTaxFormRequest $request){
+        return $this->purchases->addTax($request);
+    }
+    public function destroyTax(){
+        return $this->purchases->destroyTax();
     }
 }

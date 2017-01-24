@@ -39,6 +39,6 @@
 
     <div class="panel panel-success">
         <div class="panel-heading text-uppercase"><strong>Listagem de itens da compra</strong></div>
-        <div class="panel-body">@include('Sales::partial.tabs.itenstable')</div>
+        <div class="panel-body">@include('purchases::partial.tabs.itenstable')</div>
     </div>
 </div>

@@ -23,6 +23,6 @@
 
     <div class="panel panel-success">
         <div class="panel-heading text-uppercase"><strong>Listagem de taxas e impostos</strong></div>
-        <div class="panel-body">@include('Sales::partial.tabs.taxestable')</div>
+        <div class="panel-body">@include('purchases::partial.tabs.taxestable')</div>
     </div>
 </div>

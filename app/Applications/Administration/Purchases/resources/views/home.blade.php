@@ -1,9 +1,9 @@
 @extends('administration::base')
 @section('body')
-    @include('Sales::partial.menu')
+    @include('purchases::partial.menu')
     <div class="row">
         <div class="col-lg-12">
-            <table class="table table-bordered table-striped table-responsive table-condensed table-hover datatable" id="Sales-table">
+            <table class="table table-bordered table-striped table-responsive table-condensed table-hover datatable" id="purchases-table">
                 <thead>
                 <tr>
                     <th class="text-center col-lg-1 no-sort"><i class="fa fa-wrench" aria-hidden="true"></i></th>
@@ -29,16 +29,17 @@
 @stop
 @push('scripts')
 <script>
-    var table = $('#Sales-table').DataTable({
+    var table = $('#purchases-table').DataTable({
         processing: true,
         serverSide: true,
         ajax: {
             url: '{!! url('dashboard/purchase/datatable') !!}',
             data: function (d) {
-                d.id        = $('input[name=id]').val();
-                d.name      = $('input[name=name]').val();
-                d.date      = $('input[name=date]').val();
-                d.status_id = $('select[name=status_id]').val();
+                d.id           = $('input[name=id]').val();
+                d.name         = $('input[name=name]').val();
+                d.date_initial = $('input[name=date_initial]').val();
+                d.date_end     = $('input[name=date_end]').val();
+                d.status_id    = $('select[name=status_id]').val();
             }
         },
         columns: [

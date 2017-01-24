@@ -41,9 +41,8 @@ class PurchasesRepository implements PurchasesRepositoryInterface
         if ($name = \Request::get('name')) {
             $data_tables->where('providers.name', 'like', "%".$name."%");
         }
-        if ($date = \Request::get('date')) {
-            $formatdate = AppHelper::date_universal($date);
-            $data_tables->where('date', '=', $formatdate);
+        if (\Request::get('date_initial') && \Request::get('date_end')) {
+            $data_tables->whereBetween('date', array(AppHelper::date_universal(\Request::get('date_initial')), AppHelper::date_universal(\Request::get('date_end'))));
         }
         if ($total_price = \Request::get('total_price')) {
             $data_tables->where('total_price', '=', ".$total_price.");
@@ -128,6 +127,7 @@ class PurchasesRepository implements PurchasesRepositoryInterface
         $products         = $compact['products'];
         $purchase_itens   = PurchaseItem::where('purchase_id', $compact['id'])->get();
         $purchase_taxes   = PurchaseTax::where('purchase_id', $compact['id'])->get();
+
         return view('purchases::edit', compact('purchase',  'status', 'providers', 'products', 'purchase_itens', 'purchase_taxes'));
     }
     public function update($request)

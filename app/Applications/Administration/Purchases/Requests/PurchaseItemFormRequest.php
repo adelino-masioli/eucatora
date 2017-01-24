@@ -5,7 +5,7 @@
  * Date: 20/10/16
  * Time: 13:56
  */
-namespace App\Applications\Administration\Sales\Requests;
+namespace App\Applications\Administration\Purchases\Requests;
 
 use App\Core\Requests\Request;
 

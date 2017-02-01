@@ -16,6 +16,7 @@ class Purchase extends Model
         'total_area',
         'total_meters_square',
         'total_meters_stereo',
+        'description',
         'provider_id',
         'status_id'
     ];
@@ -27,6 +28,6 @@ class Purchase extends Model
         return $this->belongsTo('App\Domains\Providers\Provider', 'provider_id');
     }
     public function status() {
-        return $this->belongsTo('App\Domains\Status\Status', 'status_id');
+        return $this->belongsTo('App\Domains\Purchases\PurchaseStatus', 'status_id');
     }
 }

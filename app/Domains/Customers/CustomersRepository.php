@@ -100,7 +100,7 @@ class CustomersRepository implements CustomersRepositoryInterface
         $data = array();
         $data[''] = 'Selecione';
         foreach ($colections as $colection):
-            $data[$colection] = $colection->name;
+            $data[$colection->id] = $colection->name;
         endforeach;
         return $data;
     }
@@ -203,6 +203,33 @@ class CustomersRepository implements CustomersRepositoryInterface
     public function findRegister($id)
     {
         return Customer::findOrFail($id);
+    }
+
+    public function searchById()
+    {
+        $search  = \Request::get('id');
+        if(empty($search)){
+            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsearch')];
+            return json_encode($msg);
+            exit();
+        }
+        $data = Customer::select('customers.id', 'phone', 'celullar', 'zipcode', 'address', 'neighborhood',  'states.name as uf', 'cities.name as city')
+            ->join('states', 'states.id', '=', 'customers.state_id')
+            ->join('cities', 'cities.id', '=', 'customers.city_id');
+        if($search!=''){
+            $data  = $data->where('customers.id', $search);
+        }else{
+            $data= $data;
+        }
+        $count = $data->count();
+        if($count > 0){
+            $rows = $data->get();
+            $msg = ['status'=>1, 'result'=>$rows];
+            return json_encode($msg);
+        }else{
+            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsearch')];
+            return json_encode($msg);
+        }
     }
 
 }

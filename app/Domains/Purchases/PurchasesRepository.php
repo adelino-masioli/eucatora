@@ -7,6 +7,7 @@
  */
 
 namespace App\Domains\Purchases;
+use App\Domains\Providers\Provider;
 use AppHelper;
 use Image;
 use Yajra\Datatables\Datatables;
@@ -22,7 +23,7 @@ class PurchasesRepository implements PurchasesRepositoryInterface
     //create data_table
     public function data_table()
     {
-        $data = Purchase::select(['purchases.id', 'date',  'total_price', 'total_area', 'total_meters_square', 'total_meters_stereo', 'providers.status_id', 'providers.name'])
+        $data = Purchase::select(['purchases.id', 'date',  'total_price', 'total_area', 'total_meters_square', 'total_meters_stereo', 'purchases.status_id', 'providers.name'])
         ->leftJoin('providers', 'providers.id', '=', 'purchases.provider_id');
         $data_tables =  Datatables::of($data)
             ->addColumn('buttons',function($data){return AppHelper::gem_btn_datatable('purchase', $data->id, true);})
@@ -105,7 +106,7 @@ class PurchasesRepository implements PurchasesRepositoryInterface
                 'total_meters_square'   => 0.00,
                 'total_meters_stereo'   => 0.00,
                 'provider_id'           => $request->provider_id,
-                'status_id'             => 2
+                'status_id'             => 1
             ]);
             if ($array->save()):
                 $msg = ['status'=>1, 'response'=>\Lang::get('messages.successsave'), 'url'=>url('dashboard/purchase/edit/'.$array->id)];
@@ -124,11 +125,12 @@ class PurchasesRepository implements PurchasesRepositoryInterface
         $purchase         = Purchase::find($compact['id']);
         $status           = $compact['status'];
         $providers        = $compact['providers'];
+        $provider         = Provider::where('id', $purchase->provider_id)->first();
         $products         = $compact['products'];
         $purchase_itens   = PurchaseItem::where('purchase_id', $compact['id'])->get();
         $purchase_taxes   = PurchaseTax::where('purchase_id', $compact['id'])->get();
 
-        return view('purchases::edit', compact('purchase',  'status', 'providers', 'products', 'purchase_itens', 'purchase_taxes'));
+        return view('purchases::edit', compact('purchase',  'status', 'provider', 'providers', 'products', 'purchase_itens', 'purchase_taxes'));
     }
     public function update($request)
     {
@@ -150,8 +152,9 @@ class PurchasesRepository implements PurchasesRepositoryInterface
                 'total_area'            => $total_area,
                 'total_meters_square'   => $total_meters_square,
                 'total_meters_stereo'   => $total_meters_stereo,
+                'description'           => $request->description,
                 'provider_id'           => $request->provider_id,
-                'status_id'             => 1,
+                'status_id'             => 2,
             ];
             if($purchase->fill($array)->save()):
                 $msg = ['status'=>1, 'response'=>\Lang::get('messages.successsave')];

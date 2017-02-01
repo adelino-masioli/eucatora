@@ -25,7 +25,7 @@ class CreatePurchasesTable extends Migration
             $table->integer('provider_id')->unsigned();
             $table->foreign('provider_id')->references('id')->on('providers');
             $table->integer('status_id')->unsigned();
-            $table->foreign('status_id')->references('id')->on('status');
+            $table->foreign('status_id')->references('id')->on('purchase_status');
             $table->timestamps();
         });
     }

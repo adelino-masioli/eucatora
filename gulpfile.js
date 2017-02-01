@@ -64,6 +64,11 @@ elixir(function(mix) {
 });
 elixir(function(mix) {
     mix.scripts([
+        'purchasesale.js',
+    ], 'public/js/purchasesale.js');
+});
+elixir(function(mix) {
+    mix.scripts([
         'sweetalert.min.js',
         'site.js',
     ], 'public/js/site.js');
@@ -78,7 +83,7 @@ elixir(function(mix) {
 
 elixir(function(mix) {
     mix.version(['public/bootstrap/css/bootstrap.min.css', 'public/css/plugins.css', 'public/css/app.css', 'public/css/roboto.css',
-        'public/bootstrap/js/jquery_bootstrap.min.js', 'public/js/plugins.js', 'public/js/app.js', 'public/js/site.js'
+        'public/bootstrap/js/jquery_bootstrap.min.js', 'public/js/plugins.js', 'public/js/app.js', 'public/js/site.js', 'public/js/purchasesale.js'
     ]);
 });
 elixir(function(mix) {

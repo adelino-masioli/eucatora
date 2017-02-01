@@ -14,6 +14,7 @@ interface CustomersRepositoryInterface
     public function all();
     public function selectCustomers();
     public function findRegister($id);
+    public function searchById();
     public function auto_complete();
     public function combo();
     public function create($status);

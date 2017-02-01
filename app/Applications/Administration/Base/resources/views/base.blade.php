@@ -23,6 +23,7 @@
     <script src="{{ elixir('bootstrap/js/jquery_bootstrap.min.js') }}"></script>
     <script src="{{ elixir('js/plugins.js') }}"></script>
     <script src="{{ elixir('js/app.js') }}"></script>
+    <script src="{{ elixir('js/purchasesale.js') }}"></script>
     @stack('scripts')
 </body>
 </html>

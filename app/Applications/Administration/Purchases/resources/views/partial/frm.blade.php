@@ -5,6 +5,7 @@
             @if(isset($products))
                 <li role="presentation" class="di"><a href="#tab_itens" aria-controls="tab_itens" role="tab" data-toggle="tab"><i class="fa fa-list" aria-hidden="true"></i> Itens</a></li>
                 <li role="presentation"><a href="#tab_taxes" aria-controls="tab_taxes" role="tab" data-toggle="tab"><i class="fa fa-dollar" aria-hidden="true"></i> Taxas e Impostos</a></li>
+                <li role="presentation"><a href="#tab_description" aria-controls="tab_description" role="tab" data-toggle="tab"><i class="fa fa-comments" aria-hidden="true"></i> Observações</a></li>
             @endif
         </ul>
     </div>
@@ -14,6 +15,7 @@
         @if(isset($products))
             <div role="tabpanel" class="tab-pane fade" id="tab_itens">@include('purchases::partial.tabs.itens')</div>
             <div role="tabpanel" class="tab-pane fade" id="tab_taxes">@include('purchases::partial.tabs.taxes')</div>
+            <div role="tabpanel" class="tab-pane fade" id="tab_description">@include('purchases::partial.tabs.description')</div>
         @endif
     </div>
 </div>

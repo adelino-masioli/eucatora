@@ -17,4 +17,5 @@ Route::group(['customer'], function () {
     Route::get('/customer/autocomplete', 'CustomersController@auto_complete');
 
     Route::get('/customer/campos', 'CustomersController@campos');
+    Route::post('/customer/search-id', 'CustomersController@searchById');
 });

@@ -38,7 +38,7 @@ class PurchaseFormRequest extends Request
     public function messages()
     {
         return [
-            'name.required'    => 'Favor selecioar o <b>FORNECEDOR!</b>',
+            'provider_id.required'    => 'Favor selecioar o <b>FORNECEDOR!</b>',
         ];
     }
 

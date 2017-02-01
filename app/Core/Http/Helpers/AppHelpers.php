@@ -291,7 +291,6 @@ class AppHelpers {
         return ProductOptionsRepository::listOptionsVariations($option_id);
     }
 
-
     //activate_menu
     public static function activate_menu($arrays){
         $activate = NULL;
@@ -299,5 +298,60 @@ class AppHelpers {
             $activate .= \Request::is($array) == 1 ? 'active' : '';
         }
         return $activate;
+    }
+
+    //financial_type
+    public static function financial_type($type){
+       if($type == 1){
+           return 'ENTRADA';
+       }else{
+           return 'SAÍDA';
+       }
+    }
+    //financial_status
+    public static function financial_status($status){
+        if($status == 1){
+            return 'ABERTO';
+        }else{
+            return 'PAGO';
+        }
+    }
+    //financial_combo_type
+    public static function financial_combo_type(){
+        $combo = [];
+
+        $combo['']  = 'Selecione o tipo de lançamento';
+        $combo[1] = 'ENTRADA';
+        $combo[2] = 'SAÍDA';
+        $combo[3] = 'LANÇAMENTO FUTURO';
+
+
+        return $combo;
+    }
+    //financial_combo_status
+    public static function financial_combo_status(){
+        $combo = array();
+
+
+        $combo['']  = 'Selecione';
+        $combo[1] = 'ABERTO';
+        $combo[2] = 'PAGO';
+        $combo[3] = 'CANCELADO';
+
+        return $combo;
+
+    }
+    //financial_combo_destination
+    public static function financial_combo_destination(){
+        $combo = array();
+
+
+        $combo['']                        = 'Selecione o destino do lançamento';
+        $combo['CAMINHÃO']                = 'CAMINHÃO';
+        $combo['DESPESAS DIVERSAS']       = 'DESPESAS DIVERSAS';
+        $combo['PAGAMENTO FUNCIONÁRIOS']  = 'PAGAMENTO FUNCIONÁRIOS';
+
+        return $combo;
+
     }
 }

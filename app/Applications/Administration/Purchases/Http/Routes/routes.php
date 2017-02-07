@@ -5,7 +5,7 @@
  * Date: 16/10/16
  * Time: 19:53
  */
-Route::group(['purchase'], function () {
+Route::group(['purchase', 'middleware' => ['auth']], function () {
     Route::get('/purchases', 'PurchasesController@index');
     Route::get('/purchase/datatable', 'PurchasesController@data_table');
     Route::get('/purchase/create', 'PurchasesController@create');

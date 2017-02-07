@@ -5,7 +5,7 @@
  * Date: 16/10/16
  * Time: 19:53
  */
-Route::group(['customer'], function () {
+Route::group(['customer', 'middleware' => ['auth']], function () {
     Route::get('/customers', 'CustomersController@index');
     Route::get('/customer/datatable', 'CustomersController@data_table');
     Route::get('/customer/create', 'CustomersController@create');

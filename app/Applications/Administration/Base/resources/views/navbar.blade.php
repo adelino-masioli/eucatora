@@ -23,10 +23,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Administrador <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{Auth::user()->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="hidden"><a href="#"><i class="fa fa-pencil-square" aria-hidden="true"></i> Meus dados</a></li>
-                        <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
+                        <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
                         <li role="separator" class="divider hidden"></li>
                         <li class="hidden"><a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> Ajuda</a></li>
                     </ul>

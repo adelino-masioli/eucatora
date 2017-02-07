@@ -5,7 +5,7 @@
  * Date: 16/10/16
  * Time: 19:53
  */
-Route::group(['financial'], function () {
+Route::group(['financial', 'middleware' => ['auth']], function () {
     Route::get('/financials', 'FinancialsController@index');
     Route::get('/financial/datatable', 'FinancialsController@datatable');
     Route::get('/financial/create', 'FinancialsController@create');

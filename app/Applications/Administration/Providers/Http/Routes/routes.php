@@ -5,7 +5,7 @@
  * Date: 16/10/16
  * Time: 19:53
  */
-Route::group(['provider'], function () {
+Route::group(['provider', 'middleware' => ['auth']], function () {
     Route::get('/providers', 'ProvidersController@index');
     Route::get('/provider/datatable', 'ProvidersController@data_table');
     Route::get('/provider/create', 'ProvidersController@create');

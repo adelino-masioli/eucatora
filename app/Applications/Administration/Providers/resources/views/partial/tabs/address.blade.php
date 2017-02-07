@@ -9,7 +9,7 @@
                     <div class="input-group">
                         {!! Form::text('zipcode', null, array('id'=>'zipcode', 'class'=>'form-control', 'placeholder'=>'CEP')) !!}
                         <span class="input-group-btn">
-                          <button class="btn btn-primary" onclick="searchCEP('{{url('dashboard/get_zipcode')}}', '#zipcode');" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                          <button class="btn btn-success" onclick="searchCEP('{{url('dashboard/get_zipcode')}}', '#zipcode');" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </span>
                     </div><!-- /input-group -->
                 </div>

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="form-group col-lg-10">
                     {!! Form::label('description', 'Descrição da taxa de imposto') !!}
-                    {!! Form::text('description', null, array('id'=>'description_tax', 'class'=>'form-control input-sm', 'placeholder'=>'Informe a descrição da taxa de impostos')) !!}
+                    {!! Form::text('description_tax', null, array('id'=>'description_tax', 'class'=>'form-control input-sm', 'placeholder'=>'Informe a descrição da taxa de impostos')) !!}
                 </div>
                 <div class="form-group col-lg-2">
                     {!! Form::label('price_tax', 'Valor') !!}

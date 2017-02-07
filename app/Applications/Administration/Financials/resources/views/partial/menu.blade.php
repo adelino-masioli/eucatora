@@ -6,6 +6,7 @@
             <div class="panel-body panel-sm">
                 <div class="btn-group btn-group-sm" role="group" aria-label="group-product">
                     <a href="{{url('dashboard/financial/create')}}" class="btn btn-success text-uppercase"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo lançamento</a>
+                    <a href="{{url('dashboard/financial/report')}}" class="btn btn-default text-uppercase"><i class="fa fa-print" aria-hidden="true"></i> Gerar relatórios</a>
                     <a href="javascript:void(0);" class="btn btn-default text-uppercase" onclick="funcionRefreshDatatable();"><i class="fa fa-refresh" aria-hidden="true"></i> Atualizar</a>
                     <a href="javascript:void(0);" class="btn btn-default text-uppercase" onclick="showHiden('#frm-filters');"><i class="fa fa-search" aria-hidden="true"></i> Filtros</a>
                 </div>
@@ -25,9 +26,6 @@
                        <input type="text" class="form-control input_datapicker" name="date_final"   placeholder="Fim">
                    </div>
                    <div class="col-lg-1">
-                       <input type="text" class="form-control input_datapicker" name="date_alert"   placeholder="Alerta">
-                   </div>
-                   <div class="col-lg-1">
                        <input type="text" class="form-control" id="price" name="price"  placeholder="Valor">
                    </div>
 
@@ -43,9 +41,9 @@
                    <div class="col-lg-2">
                        <select class="form-control" name="destination">
                            <option value="">Destino</option>
-                           <option value="1">Salários</option>
-                           <option value="2">Caminhão</option>
-                           <option value="3">Diversos</option>
+                           <option value="CAMINHÃO">Caminhão</option>
+                           <option value="DESPESAS DIVERSAS">Diversos</option>
+                           <option value="PAGAMENTO FUNCIONÁRIOS">Salários</option>
                        </select>
                    </div>
 
@@ -55,6 +53,7 @@
                            <option value="">Status</option>
                            <option value="1">Aberto</option>
                            <option value="2">Pago</option>
+                           <option value="3">Cancelado</option>
                        </select>
                        <span class="input-group-btn">
                         <button class="btn btn-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>

@@ -56,4 +56,20 @@ class FinancialsController extends BaseController
     public function autocomplete(){
         return $this->financials->autocomplete();
     }
+    public function report()
+    {
+        return $this->financials->report();
+    }
+    public function reportFilter()
+    {
+        return $this->financials->reportFilter();
+    }
+    public function reportXls()
+    {
+        return $this->financials->reportXls();
+    }
+    public function reportPdf()
+    {
+        return $this->financials->reportPdf();
+    }
 }

@@ -14,13 +14,22 @@ use App\Domains\ProductOptions\ProductOptionsRepository;
 use DateTime;
 
 class AppHelpers {
+    public static function site_title(){
+        return "EUCATORA - Eucalipto tratado e in natura";
+    }
+    public static function site_address(){
+        return "RUA DOS TIMBIRAS, 2500 - 1141 - (31) 9809-5410";
+    }
+    public static function site_city(){
+        return "BELO HORIZONTE - MINAS GERAIS";
+    }
     public static function gem_btn_datatable($module=null, $id=null, $remove_duplicate_btn=null){
         $btns = null;
         $btns .= '<div class="btn-group btn-group-xs" role="group" aria-label="'.$id.'">';
-            $btns .= '<a data-toggle="tooltip" data-placement="bottom" title="Editar" href="'.url("dashboard/".$module."/edit/".$id).'" class="btn btn-info"><i class="fa fa-edit"></i></a>';
-            $btns .= '<a data-toggle="tooltip" data-placement="bottom" title="Excluir" href="javascript:void(0);" class="btn btn-danger" onclick=confirmActionDestroy(\''.$id.'\');><i class="fa fa-trash"></i></a>';
+            $btns .= '<a title="Editar" href="'.url("dashboard/".$module."/edit/".$id).'" class="btn btn-info"><i class="fa fa-edit"></i></a>';
+            $btns .= '<a title="Excluir" href="javascript:void(0);" class="btn btn-danger" onclick=confirmActionDestroy(\''.$id.'\');><i class="fa fa-trash"></i></a>';
             if($remove_duplicate_btn == null) {
-                $btns .= '<a data-toggle="tooltip" data-placement="bottom" title="Duplicar" href="javascript:void(0);" class="btn btn-warning" data_url="' . url("dashboard/" . $module . "/duplicate") . '" id="' . $id . '" onclick="functionDuplicate(\'' . $id . '\');" ><i class="fa fa-clone"></i></a>';
+                $btns .= '<a title="Duplicar" href="javascript:void(0);" class="btn btn-warning" data_url="' . url("dashboard/" . $module . "/duplicate") . '" id="' . $id . '" onclick="functionDuplicate(\'' . $id . '\');" ><i class="fa fa-clone"></i></a>';
             }else{
                 $btns .= '<a href="javascript:void(0);" class="btn btn-default disabled"><i class="fa fa-clone"></i></a>';
             }
@@ -323,7 +332,6 @@ class AppHelpers {
         $combo['']  = 'Selecione o tipo de lançamento';
         $combo[1] = 'ENTRADA';
         $combo[2] = 'SAÍDA';
-        $combo[3] = 'LANÇAMENTO FUTURO';
 
 
         return $combo;
@@ -350,8 +358,21 @@ class AppHelpers {
         $combo['CAMINHÃO']                = 'CAMINHÃO';
         $combo['DESPESAS DIVERSAS']       = 'DESPESAS DIVERSAS';
         $combo['PAGAMENTO FUNCIONÁRIOS']  = 'PAGAMENTO FUNCIONÁRIOS';
+        $combo['RECEBIMENTO']             = 'RECEBIMENTO';
 
         return $combo;
 
+    }
+
+    //
+    public static function financial_export_type_1($type, $price){
+        if($type==1){
+            return $price;
+        }
+    }
+    public static function financial_export_type_2($type, $price){
+        if($type==2){
+            return $price;
+        }
     }
 }

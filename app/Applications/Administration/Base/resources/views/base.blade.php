@@ -2,7 +2,8 @@
 <html lang="pt_BR">
 <head>
     <meta charset="UTF-8">
-    <title>EucaSys</title>
+    <title>{{AppHelper::site_title()}}</title>
+    <link href="{{url('build/images/favicon_color.png')}}" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>

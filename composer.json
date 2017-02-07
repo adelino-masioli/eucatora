@@ -9,11 +9,13 @@
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "^5.3.0",
         "barryvdh/laravel-debugbar": "^2.3",
+        "maatwebsite/excel": "~2.1.0",
         "barryvdh/laravel-dompdf": "^0.7.0",
         "yajra/laravel-datatables-oracle": "^6.21",
         "intervention/image": "^2.3",
         "canducci/zipcode": "1.*",
-        "davejamesmiller/laravel-breadcrumbs": "^3.0"
+        "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "barryvdh/laravel-snappy": "^0.3.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

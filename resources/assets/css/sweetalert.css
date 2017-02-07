@@ -55,6 +55,9 @@
 .showSweetAlert {
   animation: showSweetAlert 0.3s;
 }
+.showSweetAlert h2{
+  margin-top: 25px;
+}
 .showSweetAlert[data-animation=none] {
   animation: none;
 }

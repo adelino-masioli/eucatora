@@ -55,6 +55,7 @@ elixir(function(mix) {
         'maskedinput.min.js',
         'velocity.min.js',
         'velocity.ui.min.js',
+        'sweetalert.min.js',
     ], 'public/js/plugins.js');
 });
 elixir(function(mix) {
@@ -69,7 +70,6 @@ elixir(function(mix) {
 });
 elixir(function(mix) {
     mix.scripts([
-        'sweetalert.min.js',
         'site.js',
     ], 'public/js/site.js');
 });

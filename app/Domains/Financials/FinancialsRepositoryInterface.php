@@ -19,4 +19,8 @@ interface FinancialsRepositoryInterface
     public function update($request);
     public function destroy();
     public function duplicate();
+    public function report();
+    public function reportFilter();
+    public function reportXls();
+    public function reportPdf();
 }

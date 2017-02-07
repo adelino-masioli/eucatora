@@ -15,4 +15,8 @@ Route::group(['financial'], function () {
     Route::post('/financial/destroy', 'FinancialsController@destroy');
     Route::post('/financial/duplicate', 'FinancialsController@duplicate');
     Route::get('/financial/autocomplete', 'FinancialsController@autocomplete');
+    Route::get('/financial/report', 'FinancialsController@report');
+    Route::post('/financial/report-filter', 'FinancialsController@reportFilter');
+    Route::get('/financial/report-exportxls', 'FinancialsController@reportXls');
+    Route::get('/financial/report-exportpdf', 'FinancialsController@reportPdf');
 });

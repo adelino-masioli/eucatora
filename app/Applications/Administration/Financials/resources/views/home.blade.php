@@ -37,7 +37,6 @@
                 d.title = $('input[name=title]').val();
                 d.date_initial = $('input[name=date_initial]').val();
                 d.date_final = $('input[name=date_final]').val();
-                d.date_alert = $('input[name=date_alert]').val();
                 d.price = $('input[name=price]').val();
                 d.type = $('select[name=type]').val();
                 d.destination = $('select[name=destination]').val();
@@ -73,4 +72,28 @@
 </script>
 {{HelperJS::autocomplete(url('dashboard/financial/autocomplete?query=%QUERY'), '#autoname', 3)}}
 {{HelperJS::mask_money('#price')}}
+
+<script>
+    function showExport(url, type) {
+        alertExplode('IMPORTANTE', 'Relatório gerado com sucesso', 'success', 'btn-success', 'Fechar', 'Download');
+    }
+
+
+    //alerts
+    function alertExplode(title, msg, type, btntype, btntextcancel, btntext) {
+        swal({
+            title: title,
+            text: msg,
+            type: type,
+            confirmButtonClass: btntype,
+            confirmButtonText: btntext,
+            showCancelButton: true,
+            cancelButtonText: btntextcancel,
+            closeOnConfirm: false
+        },
+        function(){
+            alert('ops');
+        });
+    }
+</script>
 @endpush

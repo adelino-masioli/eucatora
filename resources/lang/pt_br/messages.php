@@ -12,6 +12,7 @@ return [
     'successupload'    => 'Upload com sucesso!',
     'errorupload'      => 'Erro ao fazer upload!',
     'errorsearch'      => 'Nenhum resultado para esta busca!',
+    'msgfinally'       => 'Script executado com sucesso!',
 
     'successorder'     => 'Pedido finaizado com sucesso!',
     'errororder'       => 'Erro ao finalizar pedido!',

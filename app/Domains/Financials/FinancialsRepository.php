@@ -44,8 +44,8 @@ class FinancialsRepository implements FinancialsRepositoryInterface
             $date_final     = AppHelper::format_inversedateonly($date_end1);
             $datatables->whereBetween('date_initial', array($date_initial, $date_final));
         }
-        if ($date_alert = \Request::get('date_alert')) {
-            $datatables->where('date_alert', '=', AppHelper::format_inversedateonly($date_alert));
+        if ($price = \Request::get('price')) {
+            $datatables->where('price', '=', AppHelper::money_reverse($price));
         }
         if ($type = \Request::get('type')) {
             $datatables->where('type', '=', intval($type));
@@ -140,6 +140,7 @@ class FinancialsRepository implements FinancialsRepositoryInterface
         endif;
     }
 
+
     public function destroy()
     {
         $id = \Request::input('id');
@@ -186,5 +187,106 @@ class FinancialsRepository implements FinancialsRepositoryInterface
             $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorduplicate')];
             return json_encode($msg);
         endif;
+    }
+
+    //reports
+    public function report()
+    {
+        return view('financials::report');
+    }
+    public function reportFilter()
+    {
+
+        try{
+            $data = Financial::select('id', 'title', 'date_initial', 'date_final' , 'date_alert', 'amount', 'price', 'type', 'status');
+
+
+            if ($title = \Request::get('title')) {
+                $filter = $data->where('title', 'like', "%".$title."%");
+            }
+            if ($date_initial1  = \Request::get('date_initial') && $date_end1 = \Request::get('date_final')) {
+                $date_initial   = AppHelper::format_inversedateonly($date_initial1);
+                $date_final     = AppHelper::format_inversedateonly($date_end1);
+                $filter =  $data->whereBetween('date_initial', array($date_initial, $date_final));
+            }
+            if ($price = \Request::get('price')) {
+                $value    = AppHelper::money_reverse($price);
+                $valueint = intval($value);
+                $filter =  $data->where('price', 'like', "%{$valueint}%");
+            }
+            if ($type = \Request::get('type')) {
+                $filter =  $data->where('type', '=', intval($type));
+            }
+            if ($destination = \Request::get('destination')) {
+                $filter = $data->where('destination', '=', $destination);
+            }
+            if ($status = \Request::get('status')) {
+                $filter = $data->where('status', '=', intval($status));
+            }
+
+            if ($data->count() > 0):
+
+                session()->forget('report');
+                session(['report' => $filter->get()]);
+
+                $data_array = array();
+                foreach ($filter->get() as $rows){
+                    $data_array[$rows->id]['title']        =  $rows->title;
+                    $data_array[$rows->id]['date_initial'] =  AppHelper::date_only_br($rows->date_initial);
+                    $data_array[$rows->id]['date_final']   =  AppHelper::date_only_br($rows->date_final);
+                    $data_array[$rows->id]['date_alert']   =  AppHelper::date_only_br($rows->date_alert);
+                    $data_array[$rows->id]['price']        =  AppHelper::money_br($rows->price);
+                    $data_array[$rows->id]['type']         =  AppHelper::financial_type($rows->type);
+                    $data_array[$rows->id]['status']       =  AppHelper::financial_status($rows->status);
+                }
+
+                $msg = ['status'=>1, 'data'=>$data_array];
+                return json_encode($msg);
+            else:
+                session()->forget('report');
+                $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsearch')];
+                return json_encode($msg);
+            endif;
+        }catch(\Exception $e){
+            session()->forget('report');
+            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsearch')];
+            return json_encode($msg);
+        }
+    }
+    //export xls
+    public function reportXls()
+    {
+        \Excel::create('Financeiro - '.date('d-m-Y'), function($excel) {
+            $excel->sheet('Financeiro - '.date('d-m-Y'), function($sheet) {
+                $sheet->setPageMargin(0.25);
+                $sheet->setStyle(array(
+                    'font' => array(
+                        'name'      =>  'Arial'
+                    )
+                ));
+
+                if(session()->get('report') && session()->get('report') != ''){
+                    $data = session()->get('report');
+                }else{
+                    $data = Financial::select('id', 'title', 'date_initial', 'date_final' , 'date_alert', 'amount', 'price', 'type', 'status')->get();
+                }
+
+                $sheet->loadView('financials::partial.export.xls', array('data' =>$data));
+                $sheet->setOrientation('landscape');
+            });
+        })->export('xls');
+
+    }
+    //export pdfs
+    public function reportPdf()
+    {
+        if(session()->get('report') && session()->get('report') != ''){
+            $data = session()->get('report');
+        }else{
+            $data = Financial::select('id', 'title', 'date_initial', 'date_final' , 'date_alert', 'amount', 'price', 'type', 'status')->get();
+        }
+
+        $pdf = \PDF::loadView('financials::partial.export.pdf', compact('data'))->setPaper('a4', 'landscape');
+        return $pdf->download(date('Y-m-d H:i:s').'.pdf');
     }
 }

@@ -1,0 +1,49 @@
+<div id="frm-filters" class="well well-sm">
+    <div class="row">
+        <form action="" id="search-form">
+            <div class="col-lg-3">
+                <input type="text" class="form-control" name="title"  id="autoname" placeholder="Descrição do lançamento">
+            </div>
+            <div class="col-lg-1">
+                <input type="text" class="form-control input_datapicker" name="date_initial"   placeholder="Início">
+            </div>
+            <div class="col-lg-1">
+                <input type="text" class="form-control input_datapicker" name="date_final"   placeholder="Fim">
+            </div>
+            <div class="col-lg-1">
+                <input type="text" class="form-control" id="price" name="price"  placeholder="Valor">
+            </div>
+
+            <div class="col-lg-2">
+                <select class="form-control" name="type">
+                    <option value="">Tipo</option>
+                    <option value="1">Entrada</option>
+                    <option value="2">Saída</option>
+                </select>
+            </div>
+
+            <div class="col-lg-2">
+                <select class="form-control" name="destination">
+                    <option value="">Destino</option>
+                    <option value="CAMINHÃO">Caminhão</option>
+                    <option value="DESPESAS DIVERSAS">Diversos</option>
+                    <option value="PAGAMENTO FUNCIONÁRIOS">Salários</option>
+                </select>
+            </div>
+
+            <div class="col-lg-2">
+                <div class="input-group">
+                    <select class="form-control" name="status">
+                        <option value="">Status</option>
+                        <option value="1">Aberto</option>
+                        <option value="2">Pago</option>
+                        <option value="3">Cancelado</option>
+                    </select>
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="button" onclick="functionReport('#frmFinancial');"><i class="fa fa-search" aria-hidden="true"></i></button>
+                      </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

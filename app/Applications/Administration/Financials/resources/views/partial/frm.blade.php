@@ -21,17 +21,17 @@
                             <div class="form-group col-lg-2">
                                 {!! Form::label('date_initial', 'Lançamento') !!}
                                 <i class="fa fa-exclamation-circle text-info cursor-pointer" aria-hidden="true" data-toggle="popover" data-placement="top" title="Lançamento" data-content="Data do lançamento!"></i>
-                                {!! Form::text('date_initial', null, array('id'=>'date_initial', 'class'=>'form-control input_datapicker', 'placeholder'=>'Lançamento','required')) !!}
+                                {!! Form::text('date_initial', isset($financial) ? AppHelper::date_only_br($financial->date_initial) : null, array('id'=>'date_initial', 'class'=>'form-control input_datapicker', 'placeholder'=>'Lançamento','required')) !!}
                             </div>
                             <div class="form-group col-lg-2">
                                 {!! Form::label('date_final', 'Vencimento') !!}
                                 <i class="fa fa-exclamation-circle text-info cursor-pointer" aria-hidden="true" data-toggle="popover" data-placement="top" title="Vencimento" data-content="Data do vencimento!"></i>
-                                {!! Form::text('date_final', null, array('id'=>'date_initial', 'class'=>'form-control input_datapicker', 'placeholder'=>'Vencimento','required')) !!}
+                                {!! Form::text('date_final', isset($financial) ? AppHelper::date_only_br($financial->date_final) : null, array('id'=>'date_final', 'class'=>'form-control input_datapicker', 'placeholder'=>'Vencimento','required')) !!}
                             </div>
                             <div class="form-group col-lg-2">
                                 {!! Form::label('date_alert', 'Lembrar-me') !!}
                                 <i class="fa fa-exclamation-circle text-info cursor-pointer" aria-hidden="true" data-toggle="popover" data-placement="top" title="Lembrar-me" data-content="Alerta de vencimento!"></i>
-                                {!! Form::text('date_alert', null, array('id'=>'date_alert', 'class'=>'form-control input_datapicker', 'placeholder'=>'Lembrar-me','required')) !!}
+                                {!! Form::text('date_alert', isset($financial) ? AppHelper::date_only_br($financial->date_alert) : null, array('id'=>'date_alert', 'class'=>'form-control input_datapicker', 'placeholder'=>'Lembrar-me')) !!}
                             </div>
                         </div>
 
@@ -79,9 +79,9 @@
                                 {!! Form::text('amount', null, array('id'=>'amount', 'class'=>'form-control', 'placeholder'=>'Parcelas', 'required', 'onclick'=>'onlyNumber(\'#amount\')')) !!}
                             </div>
                             <div class="form-group col-lg-6">
-                                {!! Form::label('provider', 'Fornecedor') !!}
-                                <i class="fa fa-exclamation-circle text-info cursor-pointer" aria-hidden="true" data-toggle="popover" data-placement="top" title="Fornecedor" data-content="A quem será pago?"></i>
-                                {!! Form::text('provider', null, array('id'=>'provider', 'class'=>'form-control', 'placeholder'=>'Fornecedor', 'required')) !!}
+                                {!! Form::label('provider', 'Fornecedor/Cliente') !!}
+                                <i class="fa fa-exclamation-circle text-info cursor-pointer" aria-hidden="true" data-toggle="popover" data-placement="top" title="Fornecedor" data-content="De quem será pago ou recebido?"></i>
+                                {!! Form::text('provider', null, array('id'=>'provider', 'class'=>'form-control', 'placeholder'=>'Fornecedor/Cliente', 'required')) !!}
                             </div>
                         </div>
                     </div>

@@ -105,6 +105,7 @@ class PurchasesRepository implements PurchasesRepositoryInterface
                 'total_area'            => 0.00,
                 'total_meters_square'   => 0.00,
                 'total_meters_stereo'   => 0.00,
+                'description'           => '',
                 'provider_id'           => $request->provider_id,
                 'status_id'             => 1
             ]);

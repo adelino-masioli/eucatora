@@ -30,7 +30,7 @@ class PurchasesController extends BaseController
     {
         return $this->purchases->index();
     }
-    
+
     public function data_table() {
         $data = $this->purchases->data_table();
         return $data;

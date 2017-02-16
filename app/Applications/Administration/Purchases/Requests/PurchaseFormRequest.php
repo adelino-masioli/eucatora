@@ -30,7 +30,9 @@ class PurchaseFormRequest extends Request
     public function rules()
     {
         return [
-            'provider_id' => 'required'
+            'denomination'  => 'required',
+            'owner_name'    => 'required',
+            'explorer_name' => 'required'
         ];
 
 
@@ -38,7 +40,9 @@ class PurchaseFormRequest extends Request
     public function messages()
     {
         return [
-            'provider_id.required'    => 'Favor selecioar o <b>FORNECEDOR!</b>',
+            'denomination.required'  => 'Favor informar a <b>DENOMINAÇÃO!</b>',
+            'owner_name.required'    => 'Favor informar o <b>NOME DO PROPRIETÁRIO!</b>',
+            'explorer_name.required' => 'Favor informar o <b>NOME DO EXPLORADOR!</b>'
         ];
     }
 

@@ -7,6 +7,7 @@
  */
 
 namespace App\Domains\Purchases;
+use App\Core\Http\Helpers\AppHelpers;
 use App\Domains\Providers\Provider;
 use AppHelper;
 use Image;
@@ -23,39 +24,28 @@ class PurchasesRepository implements PurchasesRepositoryInterface
     //create data_table
     public function data_table()
     {
-        $data = Purchase::select(['purchases.id', 'date',  'total_price', 'total_area', 'total_meters_square', 'total_meters_stereo', 'purchases.status_id', 'providers.name'])
-        ->leftJoin('providers', 'providers.id', '=', 'purchases.provider_id');
+        $data = Purchase::select(['id','denomination', 'owner_name',  'total_area',  'date',  'status_id']);
         $data_tables =  Datatables::of($data)
-            ->addColumn('buttons',function($data){return AppHelper::gem_btn_datatable('purchase', $data->id, true);})
+            ->addColumn('buttons',function($data){return AppHelper::gem_btn_datatable('purchase', $data->id, false);})
             ->editColumn('status_id',function($data){return $data->status->status;})
-            ->editColumn('date',function($data){return AppHelper::date_only_br($data->date);})
-            ->editColumn('area',function($data){return AppHelper::money_br($data->total_area);})
-            ->editColumn('square',function($data){return AppHelper::money_br($data->total_meters_square);})
-            ->editColumn('stereo',function($data){return AppHelper::money_br($data->total_meters_stereo);})
-            ->editColumn('total',function($data){return AppHelper::money_br($data->total_price);});
+            ->editColumn('date',function($data){return AppHelper::date_only_br($data->date);});
         $this->filter($data_tables);
         return $data_tables->make(true);
     }
 
     public function filter($data_tables)
     {
-        if ($name = \Request::get('name')) {
-            $data_tables->where('providers.name', 'like', "%".$name."%");
+        if ($id = \Request::get('id')) {
+            $data_tables->where('id',  $id);
+        }
+        if ($name = \Request::get('denomination')) {
+            $data_tables->where('denomination', 'like', "%".$name."%");
+        }
+        if ($owner_name = \Request::get('owner_name')) {
+            $data_tables->where('owner_name', 'like', "%".$owner_name."%");
         }
         if (\Request::get('date_initial') && \Request::get('date_end')) {
             $data_tables->whereBetween('date', array(AppHelper::date_universal(\Request::get('date_initial')), AppHelper::date_universal(\Request::get('date_end'))));
-        }
-        if ($total_price = \Request::get('total_price')) {
-            $data_tables->where('total_price', '=', ".$total_price.");
-        }
-        if ($total_area = \Request::get('total_area')) {
-            $data_tables->where('total_area', '=', ".$total_area.");
-        }
-        if ($total_meters_square = \Request::get('total_meters_square')) {
-            $data_tables->where('total_meters_square', '=', ".$total_meters_square.");
-        }
-        if ($total_meters_stereo = \Request::get('total_meters_stereo')) {
-            $data_tables->where('total_meters_stereo', '=', ".$total_meters_stereo.");
         }
         if ($status_id = \Request::get('status_id')) {
             $data_tables->where('purchases.status_id', '=', intval($status_id));
@@ -91,24 +81,16 @@ class PurchasesRepository implements PurchasesRepositoryInterface
 
     public function create($compact=[])
     {
-        $providers        = $compact['providers'];
-        return view('purchases::create', compact('providers'));
+        return view('purchases::create');
     }
     public function store($request)
     {
         try{
-            $array = new Purchase([
-                'transaction'           => AppHelper::gen_token(),
-                'date'                  => date('Y-m-d'),
-                'time'                  => date('H:i:s'),
-                'total_price'           => 0.00,
-                'total_area'            => 0.00,
-                'total_meters_square'   => 0.00,
-                'total_meters_stereo'   => 0.00,
-                'description'           => '',
-                'provider_id'           => $request->provider_id,
-                'status_id'             => 1
-            ]);
+            $data                      = $request->all();
+            $data['transaction']       = AppHelper::gen_token();
+            $data['status_id']         = 1;
+            $array                     = Purchase::create($data);
+
             if ($array->save()):
                 $msg = ['status'=>1, 'response'=>\Lang::get('messages.successsave'), 'url'=>url('dashboard/purchase/edit/'.$array->id)];
                 return json_encode($msg);
@@ -125,39 +107,19 @@ class PurchasesRepository implements PurchasesRepositoryInterface
     {
         $purchase         = Purchase::find($compact['id']);
         $status           = $compact['status'];
-        $providers        = $compact['providers'];
-        $provider         = Provider::where('id', $purchase->provider_id)->first();
-        $products         = $compact['products'];
-        $purchase_itens   = PurchaseItem::where('purchase_id', $compact['id'])->get();
-        $purchase_taxes   = PurchaseTax::where('purchase_id', $compact['id'])->get();
 
-        return view('purchases::edit', compact('purchase',  'status', 'provider', 'providers', 'products', 'purchase_itens', 'purchase_taxes'));
+        return view('purchases::edit', compact('purchase',  'status'));
     }
     public function update($request)
     {
-
-
         try{
             $purchase = Purchase::findOrFail($request->purchase_id);
-            $purchase_itens = PurchaseItem::where('purchase_id', $request->purchase_id);
 
-            $total_price          = $purchase_itens->sum('price');
-            $total_area           = $purchase_itens->sum('area');
-            $total_meters_square  = $purchase_itens->sum('meters_square');
-            $total_meters_stereo  = $purchase_itens->sum('meters_stereo');
+            $data                      = $request->all();
+            $data['transaction']       = $purchase->transaction;
+            $data['status_id']         = 2;
 
-            $array = [
-                'date'                  => $purchase->date,
-                'time'                  => $purchase->time,
-                'total_price'           => $total_price,
-                'total_area'            => $total_area,
-                'total_meters_square'   => $total_meters_square,
-                'total_meters_stereo'   => $total_meters_stereo,
-                'description'           => $request->description,
-                'provider_id'           => $request->provider_id,
-                'status_id'             => 2,
-            ];
-            if($purchase->fill($array)->save()):
+            if($purchase->fill($data)->save()):
                 $msg = ['status'=>1, 'response'=>\Lang::get('messages.successsave')];
                 return json_encode($msg);
             else:
@@ -169,6 +131,29 @@ class PurchasesRepository implements PurchasesRepositoryInterface
             return json_encode($msg);
         }
     }
+    public function duplicate()
+    {
+        $id = \Request::input('id');
+        $row = Purchase::findOrFail($id);
+        $newname = $row->denomination . '-Copy'.date('Y-m-d H:m:s');
+
+        $data                      = $row;
+        $data['transaction']       = AppHelper::gen_token();
+        $data['denomination']      = $newname;
+        $data['status_id']         = 1;
+
+        $array = $data->replicate();
+
+        if ($array->save()):
+            $msg = ['status'=>1, 'response'=>\Lang::get('messages.successduplicate')];
+            return json_encode($msg);
+        else:
+            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorduplicate')];
+            return json_encode($msg);
+        endif;
+    }
+
+
     public function destroy()
     {
         $id = \Request::input('id');
@@ -187,109 +172,6 @@ class PurchasesRepository implements PurchasesRepositoryInterface
     public function findRegister($id)
     {
         return Purchase::findOrFail($id);
-    }
-
-    //additem on purchases
-    public function addItem($request)
-    {
-        try{
-            $array = new PurchaseItem([
-                'price'           => AppHelper::money_reverse($request->price),
-                'area'            => AppHelper::money_reverse($request->area),
-                'meters_square'   => AppHelper::money_reverse($request->meters_square),
-                'meters_stereo'   => AppHelper::money_reverse($request->meters_stereo),
-                'product_id'      => $request->product_id,
-                'purchase_id'     => $request->purchase_id,
-            ]);
-            if ($array->save()):
-                $purchase_itens = PurchasesRepository::listItens($request->purchase_id);
-                $msg = ['status'=>1, 'response'=>\Lang::get('messages.successsave'), 'result'=>$purchase_itens];
-                return json_encode($msg);
-            else:
-                $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsave')];
-                return json_encode($msg);
-            endif;
-        }catch(\Exception $e){
-            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsave')];
-            return json_encode($msg);
-        }
-    }
-    //destroyitem on purchases
-    public function destroyItem()
-    {
-        $id = \Request::input('id');
-        try{
-            $purchase = PurchaseItem::findOrFail($id);
-            $purchase->delete();
-
-            $purchase_itens = PurchasesRepository::listItens($purchase->purchase_id);
-            $msg = ['status'=>1, 'response'=>\Lang::get('messages.successdestroy'), 'result'=>$purchase_itens];
-            return json_encode($msg);
-        }catch(\Exception $e){
-            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errordestroy')];
-            return json_encode($msg);
-        }
-    }
-
-    public function listItens($purchase_id)
-    {
-        $purchase_itens   = PurchaseItem::select('purchase_itens.id', 'area', 'meters_square', 'meters_stereo', 'price', 'name')
-            ->leftJoin('products', 'products.id', '=', 'purchase_itens.product_id')
-            ->where('purchase_id', $purchase_id)
-            ->orderBy('id')
-            ->get();
-
-        return $purchase_itens;
-    }
-
-
-
-    public function addTax($request)
-    {
-        try{
-            $array = new PurchaseTax([
-                'description'     => $request->description,
-                'price'           => AppHelper::money_reverse($request->price),
-                'purchase_id'     => $request->purchase_id,
-            ]);
-            if ($array->save()):
-                $purchase_taxes = PurchasesRepository::listTaxes($request->purchase_id);
-                $msg = ['status'=>1, 'response'=>\Lang::get('messages.successsave'), 'result'=>$purchase_taxes];
-                return json_encode($msg);
-            else:
-                $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsave')];
-                return json_encode($msg);
-            endif;
-        }catch(\Exception $e){
-            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsave')];
-            return json_encode($msg);
-        }
-    }
-    //destroyitem on purchases
-    public function destroyTax()
-    {
-        $id = \Request::input('id');
-        try{
-            $purchase = PurchaseTax::findOrFail($id);
-            $purchase->delete();
-
-            $purchase_taxes = PurchasesRepository::listTaxes($purchase->purchase_id);
-            $msg = ['status'=>1, 'response'=>\Lang::get('messages.successdestroy'), 'result'=>$purchase_taxes];
-            return json_encode($msg);
-        }catch(\Exception $e){
-            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errordestroy')];
-            return json_encode($msg);
-        }
-    }
-
-    public function listTaxes($purchase_id)
-    {
-        $purchase_itens   = PurchaseTax::select('id', 'description', 'price')
-            ->where('purchase_id', $purchase_id)
-            ->orderBy('id')
-            ->get();
-
-        return $purchase_itens;
     }
 
 }

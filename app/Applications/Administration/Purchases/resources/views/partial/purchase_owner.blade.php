@@ -29,8 +29,8 @@
                     {!! Form::text('owner_city',  null, array('id'=>'owner_city', 'class'=>'form-control input-sm', 'placeholder'=>'Município')) !!}
                 </div>
                 <div class="form-group margin-bottom-0 col-lg-2">
-                    {!! Form::label('owner_cep', 'CEP') !!}
-                    {!! Form::text('owner_cep',  null, array('id'=>'owner_cep', 'class'=>'form-control input-sm', 'placeholder'=>'CEP', 'onclick'=>'onlyNumber(\'#owner_cep\')')) !!}
+                    {!! Form::label('owner_zipcode', 'CEP') !!}
+                    {!! Form::text('owner_zipcode',  null, array('id'=>'owner_zipcode', 'class'=>'form-control input-sm', 'placeholder'=>'CEP', 'onclick'=>'onlyNumber(\'#owner_cep\')')) !!}
                 </div>
             </div>{{--end address--}}
 

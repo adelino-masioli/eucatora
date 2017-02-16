@@ -38,8 +38,8 @@
                     {!! Form::text('explorer_city',  null, array('id'=>'explorer_city', 'class'=>'form-control input-sm', 'placeholder'=>'Município')) !!}
                 </div>
                 <div class="form-group margin-bottom-0 col-lg-1">
-                    {!! Form::label('explorer_cep', 'CEP') !!}
-                    {!! Form::text('explorer_cep',  null, array('id'=>'explorer_cep', 'class'=>'form-control input-sm', 'placeholder'=>'CEP', 'onclick'=>'onlyNumber(\'#explorer_cep\')')) !!}
+                    {!! Form::label('explorer_zipcode', 'CEP') !!}
+                    {!! Form::text('explorer_zipcode',  null, array('id'=>'explorer_zipcode', 'class'=>'form-control input-sm', 'placeholder'=>'CEP', 'onclick'=>'onlyNumber(\'#explorer_cep\')')) !!}
                 </div>
 
                 <div class="form-group margin-bottom-0 col-lg-2">

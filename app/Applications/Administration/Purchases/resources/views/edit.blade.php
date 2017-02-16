@@ -7,17 +7,7 @@
     <input type="hidden" name="transaction" value="{{$purchase->transaction}}">
     @include('purchases::partial.frm')
     {!! Form::close() !!}
-
-    <input type="hidden" id="pathdestroy" name="pathdestroy" value="{{url('dashboard/purchase/destroy-item/')}}">
-    <input type="hidden" id="pathdestroytaxe" name="pathdestroytaxe" value="{{url('dashboard/purchase/destroy-tax/')}}">
 @stop
 @push('scripts')
     {{HelperJS::select_drowdown('select', 'btn-default', 8)}}
-    {{HelperJS::combo_products(url('dashboard/product/filter-by-id'), 'product_id')}}
-    {{HelperJS::mask_money('#area, #meters_square, #meters_stereo, #price, #price_tax')}}
-
-
-    <script>
-
-    </script>
 @endpush

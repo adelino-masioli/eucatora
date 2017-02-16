@@ -15,11 +15,14 @@
         <div id="frm-filters" class="well well-sm" style="display: none;">
            <div class="row">
                <form action="" id="search-form">
-                   <div class="col-lg-2">
+                   <div class="col-lg-1">
                        <input type="text" class="form-control" name="id" id="id" placeholder="Código" onclick="onlyNumber('#id');">
                    </div>
-                   <div class="col-lg-4">
-                       <input type="text" class="form-control" name="name"  id="autoname" placeholder="Informe o nome do fornecedor">
+                   <div class="col-lg-3">
+                       <input type="text" class="form-control" name="denomination"  id="autoname" placeholder="Denominação">
+                   </div>
+                   <div class="col-lg-2">
+                       <input type="text" class="form-control" name="owner_name"  placeholder="Proprietário">
                    </div>
 
                    <div class="col-lg-2">
@@ -34,8 +37,8 @@
                    <div class="input-group">
                        <select class="form-control" name="status_id">
                            <option value="">Status</option>
-                           <option value="1">Ativo</option>
-                           <option value="2">Inativo</option>
+                           <option value="1">Aberto</option>
+                           <option value="2">Concluído</option>
                        </select>
                        <span class="input-group-btn">
                         <button class="btn btn-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>

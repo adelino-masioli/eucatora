@@ -14,9 +14,5 @@ Route::group(['purchase', 'middleware' => ['auth']], function () {
     Route::put('/purchase/update', 'PurchasesController@update');
     Route::post('/purchase/destroy', 'PurchasesController@destroy');
     Route::get('/purchase/autocomplete', 'PurchasesController@auto_complete');
-
-    Route::post('/purchase/add-item', 'PurchasesController@addItem');
-    Route::post('/purchase/destroy-item', 'PurchasesController@destroyItem');
-    Route::post('/purchase/add-tax', 'PurchasesController@addTax');
-    Route::post('/purchase/destroy-tax', 'PurchasesController@destroyTax');
+    Route::post('/purchase/duplicate', 'PurchasesController@duplicate');
 });

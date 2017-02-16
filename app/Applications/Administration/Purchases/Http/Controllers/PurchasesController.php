@@ -56,21 +56,13 @@ class PurchasesController extends BaseController
     {
         return $this->purchases->destroy();
     }
+    public function duplicate()
+    {
+        return $this->purchases->duplicate();
+    }
+
     public function auto_complete(){
         return $this->purchases->auto_complete();
     }
 
-    public function addItem(PurchaseItemFormRequest $request){
-        return $this->purchases->addItem($request);
-    }
-    public function destroyItem(){
-        return $this->purchases->destroyItem();
-    }
-
-    public function addTax(PurchaseTaxFormRequest $request){
-        return $this->purchases->addTax($request);
-    }
-    public function destroyTax(){
-        return $this->purchases->destroyTax();
-    }
 }

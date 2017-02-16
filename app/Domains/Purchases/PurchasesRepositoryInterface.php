@@ -20,8 +20,5 @@ interface PurchasesRepositoryInterface
     public function edit($compact=[]);
     public function update($request);
     public function destroy();
-    public function addItem($request);
-    public function destroyItem();
-    public function addTax($request);
-    public function destroyTax();
+    public function duplicate();
 }

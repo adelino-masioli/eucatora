@@ -26,6 +26,10 @@ interface SalesRepositoryInterface
 
     public function update($request);
 
+    public function duplicate();
+
+    public function updateShipp($request);
+
     public function destroy();
 
     public function addItem($request);

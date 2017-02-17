@@ -187,10 +187,13 @@ function addItemSale(url) {
         type: 'POST',
         url: url,
         data: {product_id: $('#product_id').val(),
-            price        : $('#price').val(),
-            amount       : $('#amount_item').val(),
-            meters_square: $('#meters_square').val(),
-            meters_stereo: $('#meters_stereo').val(),
+            radial       : $('#radial').val(),
+            amount_item  : $('#amount_item').val(),
+            meters       : $('#meters').val(),
+            meters_type  : $('#meters_type').val(),
+            price_unit   : $('#price_unit').val(),
+            price_total  : $('#price_total').val(),
+            purchase_id  : $('#purchase_id').val(),
             sale_id      : $('#sale_id').val(),
             '_token'     : $('#_token').val()},
         success: function (data) {
@@ -244,18 +247,54 @@ function destroyItemSale(url, id) {
     return false;
 }
 
+
+function addShipping(url) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {product_id: $('#product_id').val(),
+            price_shipp  : $('#price_shipp').val(),
+            sale_id      : $('#sale_id').val(),
+            '_token'     : $('#_token').val()},
+        success: function (data) {
+            obj = JSON.parse(data);
+            if (obj.status == true) {
+                $('#tbl_subtotal').html(obj.subtotal);
+                $('#tbl_total').html(obj.total);
+
+                //show alert success
+                notifyAlerts(obj.response, 'fa fa-check', 'success');
+            }else{
+                notifyAlerts(obj.response,'fa fa-exclamation-circle', 'danger');
+            }
+            return false;
+        },
+        error: function (data) {
+            //show erro message and validations
+            notifyAlerts(formatErrors(data.responseJSON), 'fa fa-exclamation-circle', 'info');
+            return false;
+        }
+    });
+    return false;
+}
+
+
+
 function updateSaleItensTable(obj) {
+    $('#tbl_subtotal').html(obj.subtotal);
+    $('#tbl_total').html(obj.total);
     $('#showResult').html('');
     var div     = '';
     $.each(obj.result, function (i, val) {
         div += '<tr>';
         div += '<td class="col-md-1 text-center"><a href="javascript:void(0);" onclick="destroyItemSale(\''+$('#pathdestroy').val()+'\', \''+val.id+'\');" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
         div += '<td class="col-md-1 text-center">'+val.id+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.amount_item+'</td>';
         div += '<td class="col-md-6 text-left">'+val.name+'</td>';
-        div += '<td class="col-md-1 text-center">'+val.amount+'</td>';
-        div += '<td class="col-md-1 text-center">'+val.meters_square+'</td>';
-        div += '<td class="col-md-1 text-center">'+val.meters_stereo+'</td>';
-        div += '<td class="col-md-1 text-center">'+val.price+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.meters+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.meters_type+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.price_unit+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.price_total+'</td>';
         div += '</tr>';
     });
     $('#showResult').append(div);

@@ -20,8 +20,8 @@ class CreateSalesTable extends Migration
             $table->time('time');
             $table->integer('amount');
             $table->decimal('total_price', 10,2);
-            $table->decimal('total_meters_square', 10,2);
-            $table->decimal('total_meters_stereo', 10,2);
+            $table->decimal('total_meters', 10,2);
+            $table->decimal('price_shipp', 10,2);
             $table->text('description');
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers');

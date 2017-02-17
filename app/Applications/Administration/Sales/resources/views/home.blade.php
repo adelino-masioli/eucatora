@@ -3,15 +3,14 @@
     @include('sales::partial.menu')
     <div class="row">
         <div class="col-lg-12">
-            <table class="table table-bordered table-striped table-responsive table-condensed table-hover datatable" id="sales-table">
+            <table class="table table-bordered  table-responsive table-condensed  datatable" id="sales-table">
                 <thead>
                 <tr>
                     <th class="text-center col-lg-1 no-sort"><i class="fa fa-wrench" aria-hidden="true"></i></th>
                     <th class="text-center col-lg-1">CÓDIGO</th>
-                    <th class="text-center col-lg-4">FORNECEDOR</th>
-                    <th class="text-center col-lg-1">ÁREA</th>
-                    <th class="text-center col-lg-1">QUADRADO</th>
-                    <th class="text-center col-lg-1">ESTÉREO</th>
+                    <th class="text-center col-lg-5">NOME DO CLIENTE</th>
+                    <th class="text-center col-lg-1">METROS</th>
+                    <th class="text-center col-lg-1">FRETE</th>
                     <th class="text-center col-lg-1">TOTAL</th>
                     <th class="text-center col-lg-1">DATA</th>
                     <th class="text-center col-lg-1">STATUS</th>
@@ -47,15 +46,14 @@
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
             { data: 'amount', name: 'amount' },
-            { data: 'square', name: 'square' },
-            { data: 'stereo', name: 'stereo' },
+            { data: 'price_shipp', name: 'price_shipp' },
             { data: 'total', name: 'total' },
             { data: 'date', name: 'date' },
             { data: 'status_id', name: 'status_id' }
         ],
         //alinha as colunas no centro da página
         "columnDefs": [
-            { className: "text-center", "targets": [ 0, 1, 3, 4, 5, 6, 7, 8]}
+            { className: "text-center", "targets": [ 0, 1, 3, 4, 5, 6, 7]}
         ],
         "searching": false,
         "bLengthChange": false,

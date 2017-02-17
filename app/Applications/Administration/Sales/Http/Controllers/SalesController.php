@@ -10,6 +10,7 @@ namespace App\Applications\Administration\Sales\Http\Controllers;
 use App\Applications\Administration\Base\Http\Controllers\BaseController;
 use App\Applications\Administration\Sales\Requests\SaleFormRequest;
 use App\Applications\Administration\Sales\Requests\SaleItemFormRequest;
+use App\Applications\Administration\Sales\Requests\SaleShippFormRequest;
 
 
 class SalesController extends BaseController
@@ -50,9 +51,17 @@ class SalesController extends BaseController
     {
         return $this->sales->update($request);
     }
+    public function updateShipp(SaleShippFormRequest $request)
+    {
+        return $this->sales->updateShipp($request);
+    }
     public function destroy()
     {
         return $this->sales->destroy();
+    }
+    public function duplicate()
+    {
+        return $this->sales->duplicate();
     }
     public function auto_complete(){
         return $this->sales->auto_complete();

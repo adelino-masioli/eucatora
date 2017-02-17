@@ -13,7 +13,7 @@
 @push('scripts')
     {{HelperJS::select_drowdown('select', 'btn-default', 8)}}
     {{HelperJS::combo_products(url('dashboard/product/filter-by-id'), 'product_id')}}
-    {{HelperJS::mask_money('#meters_square, #meters_stereo, #price, #price_tax')}}
+    {{HelperJS::mask_money('#meters,  #price_total,  #price_unit, #price_shipp')}}
     <script>
 
     </script>

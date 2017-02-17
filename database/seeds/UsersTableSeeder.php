@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
                 'email'          => 'alfjuniorbh.web@gmail.com',
                 'password'       => Hash::make('102030'),
                 'created_at'     => date('Y-m-d H:i:s'),
-                'updated_at'     => date('Y-m-d H:i:s'),
+                'updated_at'     => date('Y-m-d H:i:s')
             ),
             array(
                 'name'           => 'Administrador',
@@ -27,6 +27,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at'     => date('Y-m-d H:i:s')
             )
         );
+
 
         //insert data
         foreach ($data as $datas) {

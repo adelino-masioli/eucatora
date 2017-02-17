@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-
     protected $table = 'sales';
     protected $fillable = [
         'transaction',
@@ -14,8 +13,8 @@ class Sale extends Model
         'time',
         'amount',
         'total_price',
-        'total_meters_square',
-        'total_meters_stereo',
+        'total_meters',
+        'price_shipp',
         'description',
         'customer_id',
         'status_id'
@@ -23,8 +22,7 @@ class Sale extends Model
 
     public $timestamps = true;
 
-
-    public function provider() {
+    public function customer() {
         return $this->belongsTo('App\Domains\Customers\Customer', 'customer_id');
     }
     public function status() {

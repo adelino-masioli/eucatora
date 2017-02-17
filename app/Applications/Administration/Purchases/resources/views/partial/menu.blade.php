@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-lg-12">
-        <legend class="font-weight-300">Listagem de Compras</legend>
+        <legend class="font-weight-300">Listagem de Requerimentos de Compras</legend>
 
         <div class="panel panel-default">
             <div class="panel-body panel-sm">
                 <div class="btn-group btn-group-sm" role="group" aria-label="group-customer_group">
-                    <a href="{{url('dashboard/purchase/create')}}" class="btn btn-success text-uppercase"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nova compra</a>
+                    <a href="{{url('dashboard/purchase/create')}}" class="btn btn-success text-uppercase"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo requerimento</a>
                     <a href="javascript:void(0);" class="btn btn-default text-uppercase" onclick="funcionRefreshDatatable();"><i class="fa fa-refresh" aria-hidden="true"></i> Atualizar</a>
                     <a href="javascript:void(0);" class="btn btn-default text-uppercase" onclick="showHiden('#frm-filters');"><i class="fa fa-search" aria-hidden="true"></i> Filtros</a>
                 </div>

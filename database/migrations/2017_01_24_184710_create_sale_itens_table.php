@@ -15,10 +15,12 @@ class CreateSaleItensTable extends Migration
     {
         Schema::create('sale_itens', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('amount');
-            $table->decimal('price', 10,2);
-            $table->decimal('meters_square', 10,2);
-            $table->decimal('meters_stereo', 10,2);
+            $table->integer('amount_item');
+            $table->string('radial', 20);
+            $table->decimal('meters', 10,2);
+            $table->string('meters_type', 40);
+            $table->decimal('price_unit', 10,2);
+            $table->decimal('price_total', 10,2);
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('sale_id')->unsigned();

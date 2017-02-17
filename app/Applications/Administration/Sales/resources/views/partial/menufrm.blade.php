@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <legend class="font-weight-300">@if(isset($sale)) Editando a venda <strong class="text-uppercase" id="replacename">#{{$sale->id}}</strong> @else Nova venda @endif</legend>
+        <legend class="font-weight-300">@if(isset($sale)) Editando o pedido <strong class="text-uppercase" id="replacename">N&#176;: {{$sale->id}}</strong> @else Novo pedido @endif</legend>
 
         <div class="panel panel-default">
             <div class="panel-body panel-sm">

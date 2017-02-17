@@ -9,10 +9,12 @@ class SaleItem extends Model
 
     protected $table = 'sale_itens';
     protected $fillable = [
-        'amount',
-        'price',
-        'meters_square',
-        'meters_stereo',
+        'amount_item',
+        'radial',
+        'meters',
+        'meters_type',
+        'price_unit',
+        'price_total',
         'product_id',
         'sale_id'
     ];

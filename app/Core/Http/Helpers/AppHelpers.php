@@ -375,4 +375,31 @@ class AppHelpers {
             return $price;
         }
     }
+
+    //financial_combo_type_meters
+    public static function financial_combo_type_meters(){
+        $combo = array();
+
+        $combo['QUADRADO'] = 'QUADRADO';
+        $combo['LINEAR']   = 'LINEAR';
+        $combo['PEÇA']     = 'PEÇA';
+        $combo['POSTE']    = 'POSTE';
+        $combo['CUBICO']   = 'CÚBICO';
+
+        return $combo;
+
+    }
+
+
+
+
+    public static function row_color($status=NULL){
+        if($status == 1):
+            return 'alert-warning';
+        elseif($status == 2):
+            return 'alert-success';
+        else:
+            return 'alert-danger';
+        endif;
+    }
 }

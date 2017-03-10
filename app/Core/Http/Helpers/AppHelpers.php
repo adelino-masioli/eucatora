@@ -390,8 +390,7 @@ class AppHelpers {
 
     }
 
-
-
+    
 
     public static function row_color($status=NULL){
         if($status == 1):

@@ -329,7 +329,7 @@ class AppHelpers {
     public static function financial_combo_type(){
         $combo = [];
 
-        $combo['']  = 'Selecione o tipo de lançamento';
+        $combo['']  = 'Selecione';
         $combo[1] = 'ENTRADA';
         $combo[2] = 'SAÍDA';
 
@@ -354,11 +354,25 @@ class AppHelpers {
         $combo = array();
 
 
-        $combo['']                        = 'Selecione o destino do lançamento';
-        $combo['CAMINHÃO']                = 'CAMINHÃO';
-        $combo['DESPESAS DIVERSAS']       = 'DESPESAS DIVERSAS';
-        $combo['PAGAMENTO FUNCIONÁRIOS']  = 'PAGAMENTO FUNCIONÁRIOS';
-        $combo['RECEBIMENTO']             = 'RECEBIMENTO';
+        $combo['']                     = 'Selecione';
+        $combo['ÁGUA']                 = 'ÁGUA';
+        $combo['ALIMENTAÇÃO']          = 'ALIMENTAÇÃO';
+        $combo['ALUGUEL']              = 'ALUGUEL';
+        $combo['CAMINHÃO']             = 'CAMINHÃO';
+        $combo['CARGAS/CHAPA']         = 'CARGAS/CHAPA';
+        $combo['COMBUSTIVEL FLORESTA'] = 'COMBUSTIVEL FLORESTA';
+        $combo['DESCASCADEIRA']        = 'DESCASCADEIRA';
+        $combo['DESPESAS DIVERSAS']    = 'DESPESAS DIVERSAS';
+        $combo['EXTRAS']               = 'EXTRAS';
+        $combo['FRETE']                = 'FRETE';
+        $combo['FUNCIOÁRIOS']          = 'FUNCIOÁRIOS';
+        $combo['HORA EXTRA']           = 'HORA EXTRA';
+        $combo['HOTEL']                = 'HOTEL';
+        $combo['LUZ']                  = 'LUZ';
+        $combo['MOTOSSERRA']           = 'MOTOSSERRA';
+        $combo['RECEBIMENTOS']         = 'RECEBIMENTOS';
+        $combo['TELEFONE']             = 'TELEFONE';
+        $combo['TRATOR']               = 'TRATOR';
 
         return $combo;
 
@@ -390,7 +404,7 @@ class AppHelpers {
 
     }
 
-    
+
 
     public static function row_color($status=NULL){
         if($status == 1):

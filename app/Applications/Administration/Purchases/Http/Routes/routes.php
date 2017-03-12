@@ -15,4 +15,5 @@ Route::group(['purchase', 'middleware' => ['auth']], function () {
     Route::post('/purchase/destroy', 'PurchasesController@destroy');
     Route::get('/purchase/autocomplete', 'PurchasesController@auto_complete');
     Route::post('/purchase/duplicate', 'PurchasesController@duplicate');
+    Route::get('/purchase/report-exportpdf/{id}', 'PurchasesController@exportpdf');
 });

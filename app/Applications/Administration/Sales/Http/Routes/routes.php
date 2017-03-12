@@ -21,4 +21,7 @@ Route::group(['sale', 'middleware' => ['auth']], function () {
     Route::post('/sale/destroy-item', 'SalesController@destroyItem');
     Route::post('/sale/add-tax', 'SalesController@addTax');
     Route::post('/sale/destroy-tax', 'SalesController@destroyTax');
+    Route::post('/sale/destroy-tax', 'SalesController@destroyTax');
+
+    Route::get('/sale/report-exportpdf/{id}', 'SalesController@exportpdf');
 });

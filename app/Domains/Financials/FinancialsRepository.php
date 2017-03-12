@@ -286,7 +286,7 @@ class FinancialsRepository implements FinancialsRepositoryInterface
             $data = Financial::select('id', 'title', 'date_initial', 'date_final' , 'date_alert', 'amount', 'price', 'type', 'status')->get();
         }
 
-        $pdf = \PDF::loadView('financials::partial.export.pdf', compact('data'))->setPaper('a4', 'landscape');
+        $pdf = \PDF::loadView('financials::partial.export.pdf', compact('data'))->setPaper('a4', 'portrait');
         return $pdf->download(date('Y-m-d H:i:s').'.pdf');
     }
 }

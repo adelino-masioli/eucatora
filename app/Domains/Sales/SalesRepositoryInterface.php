@@ -35,4 +35,6 @@ interface SalesRepositoryInterface
     public function addItem($request);
 
     public function destroyItem();
+
+    public function exportpdf($id);
 }

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <legend class="font-weight-300">@if(isset($financial)) Editando o lançamento <strong class="text-uppercase" id="replacename">{{$financial->title}}</strong> @else Novo Lançamento @endif</legend>
+        <legend class="font-weight-300">@if(isset($financial)) Editando o pagamento <strong class="text-uppercase" id="replacename">{{$financial->title}}</strong> @else Novo Pagamento @endif</legend>
 
         <div class="panel panel-default">
             <div class="panel-body panel-sm">

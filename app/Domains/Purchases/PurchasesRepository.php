@@ -174,4 +174,16 @@ class PurchasesRepository implements PurchasesRepositoryInterface
         return Purchase::findOrFail($id);
     }
 
+
+
+    //export pdfs
+    public function reportPdf($id)
+    {
+        $data = Purchase::select('*')->where('id', $id)->get();
+
+        $pdf = \PDF::loadView('purchases::export.pdf', compact('data'))->setPaper('a4', 'portrait');
+        return $pdf->download(date('Y-m-d H:i:s').'.pdf');
+        //return view('purchases::export.pdf', compact('data'));
+    }
+
 }

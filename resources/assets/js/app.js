@@ -719,3 +719,97 @@ $(".modal").each(function(l){$(this).on("show.bs.modal",function(l){var o=$(this
 $(function () {
     $('[data-toggle="popover"]').popover()
 })
+
+
+
+//check
+function addCheck(url) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            bank            : $('#bank').val(),
+            agency          : $('#agency').val(),
+            account         : $('#account').val(),
+            check_number    : $('#check_number').val(),
+            value           : $('#value').val(),
+            date_final      : $('#date_final').val(),
+            parcel          : $('#parcel').val(),
+            description     : $('#description').val(),
+            accountant      : $('#accountant').val(),
+            document        : $('#document').val(),
+            status          : $('#status').val(),
+            transaction     : $('#transaction').val(),
+            '_token'        : $('#_token').val()},
+        success: function (data) {
+            obj = JSON.parse(data);
+            if (obj.status == true) {
+                if(obj.result){
+                    updateCheckTable(obj);
+                }
+                resetForm('#frmCheck');
+                //show alert success
+                notifyAlerts(obj.response, 'fa fa-check', 'success');
+            }else{
+                notifyAlerts(obj.response,'fa fa-exclamation-circle', 'danger');
+            }
+            return false;
+        },
+        error: function (data) {
+            //show erro message and validations
+            notifyAlerts(formatErrors(data.responseJSON), 'fa fa-exclamation-circle', 'info');
+            return false;
+        }
+    });
+    return false;
+}
+
+function destroyCheckTable(url, id) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {id: id, returnlist: 1, '_token' : $('#_token').val()},
+        success: function (data) {
+            obj = JSON.parse(data);
+            if (obj.status == true) {
+                if(obj.result){
+                    updateCheckTable(obj);
+                }
+                //show alert success
+                notifyAlerts(obj.response, 'fa fa-check', 'success');
+            }else{
+                notifyAlerts(obj.response,'fa fa-exclamation-circle', 'danger');
+            }
+            return false;
+        },
+        error: function (data) {
+            //show erro message and validations
+            notifyAlerts(formatErrors(data.responseJSON), 'fa fa-exclamation-circle', 'info');
+            return false;
+        }
+    });
+    return false;
+}
+
+function updateCheckTable(obj) {
+    $('#showResultChecks').html('');
+    var div     = '';
+    $.each(obj.result, function (i, val) {
+        div += '<tr>';
+        div += '<td class="col-md-1 text-center"><a href="javascript:void(0);" onclick="destroyCheckTable(\''+$('#pathdestroycheck').val()+'\', \''+val.id+'\');" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
+        div += '<td class="col-md-4 text-left">'+val.bank+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.agency+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.account+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.check_number+'</td>';
+        div += '<td class="col-md-1 text-right">'+val.value+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.date_final+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.parcel+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.status+'</td>';
+        div += '</tr>';
+    });
+    $('#showResultChecks').append(div);
+}
+
+function functionSaveFake(id) {
+    notifyAlerts('Salvo com sucesso!', 'fa fa-check', 'success');
+}

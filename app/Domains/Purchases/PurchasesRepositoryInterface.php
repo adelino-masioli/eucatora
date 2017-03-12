@@ -21,4 +21,5 @@ interface PurchasesRepositoryInterface
     public function update($request);
     public function destroy();
     public function duplicate();
+    public function reportPdf($id);
 }

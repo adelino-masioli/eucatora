@@ -73,4 +73,9 @@ class SalesController extends BaseController
     public function destroyItem(){
         return $this->sales->destroyItem();
     }
+
+    public function exportpdf($id)
+    {
+        return $this->sales->exportpdf($id);
+    }
 }

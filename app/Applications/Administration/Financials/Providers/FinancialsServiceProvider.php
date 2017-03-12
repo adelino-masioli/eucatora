@@ -23,6 +23,7 @@ class FinancialsServiceProvider extends ServiceProvider
     public function register()
     {
         App::bind('App\Domains\Financials\FinancialsRepositoryInterface', 'App\Domains\Financials\FinancialsRepository');
+        App::bind('App\Domains\Financials\FinancialChecksRepositoryInterface', 'App\Domains\Financials\FinancialChecksRepository');
     }
 
     public function registerRoutes(Router $router)

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <legend class="font-weight-300">Listagem de Lançamentos Financeiros</legend>
+        <legend class="font-weight-300">Listagem de lançamentos</legend>
 
         <div class="panel panel-default">
             <div class="panel-body panel-sm">

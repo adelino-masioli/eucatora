@@ -19,7 +19,13 @@
                 <li class="{!! AppHelper::activate_menu(array('dashboard/product*')) !!}"><a href="{{url('dashboard/products')}}"><i class="fa fa-cubes" aria-hidden="true"></i> Produtos</a></li>
                 <li class="{!! AppHelper::activate_menu(array('dashboard/purchase*')) !!}"><a href="{{url('dashboard/purchases')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Compras</a></li>
                 <li class="{!! AppHelper::activate_menu(array('dashboard/sale*')) !!}"><a href="{{url('dashboard/sales')}}"><i class="fa fa-minus-circle" aria-hidden="true"></i> Vendas</a></li>
-                <li class="{!! AppHelper::activate_menu(array('dashboard/financial*')) !!}"><a href="{{url('dashboard/financials')}}"><i class="fa fa-usd" aria-hidden="true"></i> Financeiro</a></li>
+                <li class="dropdown {!! AppHelper::activate_menu(array('dashboard/financial*')) !!}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-usd" aria-hidden="true"></i> Financeiro <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{url('dashboard/financials')}}">Lançamento em dinheiro</a></li>
+                        <li><a href="{{url('dashboard/financials/check')}}">Lançamento em cheque</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

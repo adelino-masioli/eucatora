@@ -65,4 +65,9 @@ class PurchasesController extends BaseController
         return $this->purchases->auto_complete();
     }
 
+    public function exportpdf($id)
+    {
+        return $this->purchases->reportPdf($id);
+    }
+
 }

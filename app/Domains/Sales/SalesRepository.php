@@ -30,7 +30,7 @@ class SalesRepository implements SalesRepositoryInterface
             ->addColumn('buttons',function($data){return AppHelper::gem_btn_datatable('sale', $data->id, false);})
             ->editColumn('status_id',function($data){return $data->status->status;})
             ->editColumn('date',function($data){return AppHelper::date_only_br($data->date);})
-            ->editColumn('price_shipp',function($data){return AppHelper::money_br($data->total_meters_stereo);})
+            ->editColumn('price_shipp',function($data){return AppHelper::money_br($data->price_shipp);})
             ->editColumn('total',function($data){return AppHelper::money_br($data->total_price);})
             ->setRowClass(function ($data) {return AppHelper::row_color($data->status_id); });
         $this->filter($data_tables);
@@ -287,6 +287,18 @@ class SalesRepository implements SalesRepositoryInterface
             ->sum('price_total');
 
         return AppHelper::money_br($sale_itens_subtotal - $sale_sale_shipp);
+    }
+
+
+
+    //export pdf
+    public function exportpdf($id)
+    {
+        $sale = Sale::select('*')->where('id', $id)->first();
+        $item = SaleItem::select('*')->where('sale_id', $sale->id)->get();
+
+        $pdf = \PDF::loadView('sales::export.pdf', compact('sale', 'item'))->setPaper('a4', 'portrait');
+        return $pdf->download(date('Y-m-d H:i:s').'.pdf');
     }
 
 }

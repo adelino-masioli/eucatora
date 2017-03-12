@@ -15,30 +15,16 @@
             </div>
 
             <div class="col-lg-2">
-                <select class="form-control" name="type">
-                    <option value="">Tipo</option>
-                    <option value="1">Entrada</option>
-                    <option value="2">Saída</option>
-                </select>
+                {!! Form::select('type', AppHelper::financial_combo_type(), null, array('id'=>'type', 'class'=>'form-control selectpicker', 'data-container'=>'body', 'required')) !!}
             </div>
 
             <div class="col-lg-2">
-                <select class="form-control" name="destination">
-                    <option value="">Destino</option>
-                    <option value="CAMINHÃO">Caminhão</option>
-                    <option value="DESPESAS DIVERSAS">Diversos</option>
-                    <option value="PAGAMENTO FUNCIONÁRIOS">Salários</option>
-                </select>
+                {!! Form::select('destination', AppHelper::financial_combo_destination(), null, array('id'=>'destination', 'class'=>'form-control selectpicker', 'data-container'=>'body', 'required')) !!}
             </div>
 
             <div class="col-lg-2">
                 <div class="input-group">
-                    <select class="form-control" name="status">
-                        <option value="">Status</option>
-                        <option value="1">Aberto</option>
-                        <option value="2">Pago</option>
-                        <option value="3">Cancelado</option>
-                    </select>
+                    {!! Form::select('status', AppHelper::financial_combo_status(), null, array('id'=>'status', 'class'=>'form-control selectpicker', 'data-container'=>'body', 'required')) !!}
                     <span class="input-group-btn">
                         <button class="btn btn-success" type="button" onclick="functionReport('#frmFinancial');"><i class="fa fa-search" aria-hidden="true"></i></button>
                       </span>

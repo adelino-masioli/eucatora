@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-success">
-                <div class="panel-heading text-center"><img src="{{url('build/images/brand_color.png')}}" alt=""></div>
+                <div class="panel-heading text-center"><img src="{{url('build/images/brand_color.png')}}" width="200" alt=""></div>
                 <div class="panel-body">
                     <form  role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}

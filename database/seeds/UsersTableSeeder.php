@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             array(
                 'name'           => 'Administrador',
                 'email'          => 'eucatora@eucatora.com.br',
-                'password'       => Hash::make('102030'),
+                'password'       => Hash::make('@cidaadmin'),
                 'created_at'     => date('Y-m-d H:i:s'),
                 'updated_at'     => date('Y-m-d H:i:s')
             )

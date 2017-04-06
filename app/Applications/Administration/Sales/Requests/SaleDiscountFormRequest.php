@@ -29,17 +29,17 @@ class SaleDiscountFormRequest extends Request
      */
     public function rules()
     {
-        return [
+        /*return [
             'discount'   => 'required'
-        ];
+        ];*/
 
 
     }
     public function messages()
     {
-        return [
+        /*return [
             'discount.required'   => 'Favor informar o <b>VALOR DO DESCONTO!</b>'
-        ];
+        ];*/
     }
 
 

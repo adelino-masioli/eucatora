@@ -149,8 +149,10 @@ class SalesRepository implements SalesRepositoryInterface
         try{
             $sale = Sale::findOrFail($request->sale_id);
 
+            $price_shipp = $request->price_shipp ? $request->price_shipp : '0,00';
+
             $array = [
-                'price_shipp'  => AppHelpers::money_reverse($request->price_shipp)
+                'price_shipp'  => AppHelpers::money_reverse($price_shipp)
             ];
             if($sale->fill($array)->save()):
                 $sale_itens_subtotal = SalesRepository::subtotal($request->sale_id);
@@ -170,9 +172,9 @@ class SalesRepository implements SalesRepositoryInterface
     {
         try{
             $sale = Sale::findOrFail($request->sale_id);
-
+            $discount = $request->discount ? $request->discount : '0,00';
             $array = [
-                'discount'  => AppHelpers::money_reverse($request->discount)
+                'discount'  => AppHelpers::money_reverse($discount)
             ];
             if($sale->fill($array)->save()):
                 $sale_itens_subtotal = SalesRepository::subtotal($request->sale_id);

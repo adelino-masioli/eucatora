@@ -83,6 +83,7 @@ class SalesRepository implements SalesRepositoryInterface
                 'total_price'           => 0.00,
                 'total_meters'          => 0.00,
                 'price_shipp'           => 0.00,
+                'discount'              => 0.00,
                 'description'           => '',
                 'customer_id'           => $request->customer_id,
                 'status_id'             => 1
@@ -126,6 +127,7 @@ class SalesRepository implements SalesRepositoryInterface
                 'total_price'           => $total_price,
                 'total_meters'          => $total_meters,
                 'price_shipp'           => $sale->price_shipp,
+                'discount'              => $sale->discount,
                 'description'           => $request->description ? $request->description : '',
                 'customer_id'           => $request->customer_id,
                 'status_id'             => 2,
@@ -197,6 +199,7 @@ class SalesRepository implements SalesRepositoryInterface
         $data['total_price']       = 0.00;
         $data['total_meters']      = 0.00;
         $data['price_shipp']       = 0.00;
+        $data['discount']          = 0.00;
         $data['status_id']         = 1;
 
         $array = $data->replicate();

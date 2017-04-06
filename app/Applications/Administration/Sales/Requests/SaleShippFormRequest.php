@@ -30,7 +30,7 @@ class SaleShippFormRequest extends Request
     public function rules()
     {
         return [
-            'price_shipp'   => 'required'
+            //'price_shipp'   => 'required'
         ];
 
 
@@ -38,7 +38,7 @@ class SaleShippFormRequest extends Request
     public function messages()
     {
         return [
-            'price_shipp.required'   => 'Favor informar o <b>VALOR DO FRETE!</b>'
+           // 'price_shipp.required'   => 'Favor informar o <b>VALOR DO FRETE!</b>'
         ];
     }
 

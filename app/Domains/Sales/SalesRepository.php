@@ -149,7 +149,7 @@ class SalesRepository implements SalesRepositoryInterface
         try{
             $sale = Sale::findOrFail($request->sale_id);
 
-            $price_shipp = $request->price_shipp ? $request->price_shipp : '0,00';
+            $price_shipp = isset($request->price_shipp) && $request->price_shipp > 0 ? $request->price_shipp : 0.00;
 
             $array = [
                 'price_shipp'  => AppHelpers::money_reverse($price_shipp)
@@ -172,7 +172,7 @@ class SalesRepository implements SalesRepositoryInterface
     {
         try{
             $sale = Sale::findOrFail($request->sale_id);
-            $discount = $request->discount ? $request->discount : '0,00';
+            $discount = isset($request->discount) && $request->discount > 0 ? $request->discount : 0.00;
             $array = [
                 'discount'  => AppHelpers::money_reverse($discount)
             ];

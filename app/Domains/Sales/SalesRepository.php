@@ -168,22 +168,6 @@ class SalesRepository implements SalesRepositoryInterface
     }
     public function updatediscount($request)
     {
-        $sale = Sale::findOrFail($request->sale_id);
-
-        $array = [
-            'discount'  => AppHelpers::money_reverse($request->discount)
-        ];
-        if($sale->fill($array)->save()):
-            $sale_itens_subtotal = SalesRepository::subtotal($request->sale_id);
-            $sale_itens_total    = SalesRepository::total($request->sale_id);
-            $msg = ['status'=>1, 'response'=>\Lang::get('messages.successsave'), 'subtotal'=>$sale_itens_subtotal, 'total'=>$sale_itens_total];
-            return json_encode($msg);
-        else:
-            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsave')];
-            return json_encode($msg);
-        endif;
-
-        exit();
         try{
             $sale = Sale::findOrFail($request->sale_id);
 

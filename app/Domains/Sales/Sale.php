@@ -16,6 +16,7 @@ class Sale extends Model
         'total_meters',
         'price_shipp',
         'description',
+        'discount',
         'customer_id',
         'status_id'
     ];

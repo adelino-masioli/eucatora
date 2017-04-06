@@ -13,8 +13,18 @@
 @push('scripts')
     {{HelperJS::select_drowdown('select', 'btn-default', 8)}}
     {{HelperJS::combo_products(url('dashboard/product/filter-by-id'), 'product_id')}}
-    {{HelperJS::mask_money('#meters,  #price_total,  #price_unit, #price_shipp')}}
+    {{HelperJS::mask_money('#meters,  #price_total,  #price_unit, #price_shipp, #discount')}}
     <script>
+
+        function updateTotal() {
+            var qtd = $('#amount_item').val();
+            var met = parseFloat($('#meters').val());
+            var pri = parseFloat($('#price_unit').val());
+            if(qtd > 0 && met > 0 && pri > 0) {
+                var total = parseFloat(qtd * met * pri).toFixed(2);
+                $('#price_total').val(Math.round(total));
+            }
+        }
 
     </script>
 @endpush

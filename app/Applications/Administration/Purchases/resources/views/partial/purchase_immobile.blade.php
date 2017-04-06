@@ -50,7 +50,7 @@
             </div>{{--end number register--}}
 
 
-            <div class="row">
+            <div class="row hidden">
                 <div class="form-group margin-bottom-0 col-lg-4">
                     {!! Form::label('cood_geo_lat', 'Cood. Geog. Lat.') !!}
                     {!! Form::text('cood_geo_lat',  null, array('id'=>'cood_geo_lat', 'class'=>'form-control input-sm', 'placeholder'=>'Cood. Geog. Lat.')) !!}
@@ -66,7 +66,7 @@
             </div>{{--end geographic--}}
 
 
-            <div class="row">
+            <div class="row hidden">
                 <div class="form-group margin-bottom-0 col-lg-4">
                     {!! Form::label('plan_utm_lat', 'Planas(UTM) Lat.') !!}
                     {!! Form::text('plan_utm_lat',  null, array('id'=>'plan_utm_lat', 'class'=>'form-control input-sm', 'placeholder'=>'Planas(UTM) Lat.')) !!}

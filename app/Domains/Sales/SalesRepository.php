@@ -164,6 +164,28 @@ class SalesRepository implements SalesRepositoryInterface
             return json_encode($msg);
         }
     }
+    public function updatediscount($request)
+    {
+        try{
+            $sale = Sale::findOrFail($request->sale_id);
+
+            $array = [
+                'discount'  => AppHelpers::money_reverse($request->discount)
+            ];
+            if($sale->fill($array)->save()):
+                $sale_itens_subtotal = SalesRepository::subtotal($request->sale_id);
+                $sale_itens_total    = SalesRepository::total($request->sale_id);
+                $msg = ['status'=>1, 'response'=>\Lang::get('messages.successsave'), 'subtotal'=>$sale_itens_subtotal, 'total'=>$sale_itens_total];
+                return json_encode($msg);
+            else:
+                $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsave')];
+                return json_encode($msg);
+            endif;
+        }catch(\Exception $e){
+            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsave')];
+            return json_encode($msg);
+        }
+    }
     public function duplicate()
     {
         $id = \Request::input('id');
@@ -282,11 +304,15 @@ class SalesRepository implements SalesRepositoryInterface
             ->where('id', $sale_id)
             ->sum('price_shipp');
 
+        $sale_sale_discount  = Sale::select('discount')
+            ->where('id', $sale_id)
+            ->sum('discount');
+
         $sale_itens_subtotal   = SaleItem::select('price_total')
             ->where('sale_id', $sale_id)
             ->sum('price_total');
 
-        return AppHelper::money_br($sale_itens_subtotal - $sale_sale_shipp);
+        return AppHelper::money_br($sale_itens_subtotal - $sale_sale_shipp - $sale_sale_discount);
     }
 
 

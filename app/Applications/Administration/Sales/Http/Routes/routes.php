@@ -13,6 +13,7 @@ Route::group(['sale', 'middleware' => ['auth']], function () {
     Route::get('/sale/edit/{id}', 'SalesController@edit');
     Route::put('/sale/update', 'SalesController@update');
     Route::post('/sale/updateshipp', 'SalesController@updateShipp');
+    Route::post('/sale/updatediscount', 'SalesController@updatediscount');
     Route::post('/sale/destroy', 'SalesController@destroy');
     Route::get('/sale/autocomplete', 'SalesController@auto_complete');
     Route::post('/sale/duplicate', 'SalesController@duplicate');
@@ -20,7 +21,6 @@ Route::group(['sale', 'middleware' => ['auth']], function () {
     Route::post('/sale/add-item', 'SalesController@addItem');
     Route::post('/sale/destroy-item', 'SalesController@destroyItem');
     Route::post('/sale/add-tax', 'SalesController@addTax');
-    Route::post('/sale/destroy-tax', 'SalesController@destroyTax');
     Route::post('/sale/destroy-tax', 'SalesController@destroyTax');
 
     Route::get('/sale/report-exportpdf/{id}', 'SalesController@exportpdf');

@@ -8,7 +8,7 @@
                 <tr>
                     <th class="text-center col-lg-1 no-sort"><i class="fa fa-wrench" aria-hidden="true"></i></th>
                     <th class="text-center col-lg-4">NOME DO CLIENTE</th>
-                    <th class="text-center col-lg-2">DOCUMENTO</th>
+                    <th class="text-center col-lg-2">DOCUMENTO CPF/CNPJ</th>
                     <th class="text-center col-lg-2">TELEFONE</th>
                     <th class="text-center col-lg-2">CELULAR</th>
                     <th class="text-center col-lg-1">STATUS</th>

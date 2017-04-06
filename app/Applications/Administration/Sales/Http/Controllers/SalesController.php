@@ -8,6 +8,7 @@
 
 namespace App\Applications\Administration\Sales\Http\Controllers;
 use App\Applications\Administration\Base\Http\Controllers\BaseController;
+use App\Applications\Administration\Sales\Requests\SaleDiscountFormRequest;
 use App\Applications\Administration\Sales\Requests\SaleFormRequest;
 use App\Applications\Administration\Sales\Requests\SaleItemFormRequest;
 use App\Applications\Administration\Sales\Requests\SaleShippFormRequest;
@@ -54,6 +55,10 @@ class SalesController extends BaseController
     public function updateShipp(SaleShippFormRequest $request)
     {
         return $this->sales->updateShipp($request);
+    }
+    public function updatediscount(SaleDiscountFormRequest $request)
+    {
+        return $this->sales->updatediscount($request);
     }
     public function destroy()
     {

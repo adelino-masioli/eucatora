@@ -48,13 +48,13 @@
             <td colspan="1" class="align-left"><strong>CEP:</strong> {{$reports->zipcode}}</td>
         </tr>
 
-        <tr id="dispoheader">
+        <tr id="dispoheader" style="display: none;">
             <td colspan="3" class="align-left borderrightonly"><strong>Cood. Geog. Lat.:</strong> {{$reports->cood_geo_lat}}</td>
             <td colspan="1" class="align-left borderrightonly"><strong>Cood. Geog. Long.:</strong> {{$reports->cood_geo_long}}</td>
             <td colspan="1" class="align-left"><strong>Ident. Carta(MI):</strong> {{$reports->mi}}</td>
         </tr>
 
-        <tr id="dispoheader">
+        <tr id="dispoheader" style="display: none;">
             <td colspan="3" class="align-left borderrightonly"><strong>Planas(UTM) Lat.:</strong> {{$reports->plan_utm_lat}}</td>
             <td colspan="1" class="align-left borderrightonly"><strong>Planas(UTM) Long.:</strong> {{$reports->plan_utm_long}}</td>
             <td colspan="1" class="align-left"><strong>Datum Horizontal:</strong> {{$reports->datum}}</td>

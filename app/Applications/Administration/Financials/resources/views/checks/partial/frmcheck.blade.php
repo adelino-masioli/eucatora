@@ -39,7 +39,7 @@
 
                         <div class="row">
                             <div class="form-group form-group-xs margin-bottom-0 col-lg-4">
-                                {!! Form::label('description', 'Descrição') !!}
+                                {!! Form::label('description', 'Emitente') !!}
                                 {!! Form::text('description', null, array('id'=>'description', 'class'=>'form-control input-sm', 'placeholder'=>'Descrição','required')) !!}
                             </div>
                             <div class="form-group form-group-xs margin-bottom-0 col-lg-4">
@@ -66,3 +66,36 @@
 
     </div>
 </div>
+
+{{--ALTERAR NÚMERO DO CHEQUE E DATA DE VENCIMENTO EDITAR  | STATUS DO CHEQUE SEM FUNDO | BAIXA DE CHEQUE
+
+FLORESTA / IVENTÁRIO
+
+FINANCEIRO /  COMPRA
+TITULO LANÇAMENTO - FORNECEDOR
+PRODUTO - DESCRIÇÃO DO QUE FOI COMPRADO
+UNIFICAR ABAS DO FINANCEIRO
+
+
+DESMEMBRAR FUNCIONÁRIOS DE LANÇAMENTOS
+FUNCIONARIOS
+HORAS EXTRAS
+
+
+CHEQUE - MOSTRAR TIPO DA OPERAÇÃO - COMPRA OU VENDA?
+--ENTRADA OU SAÍDA
+
+
+VOU AO BANCO E TENHO SALDO LIVRO CAIXA
+TELA PARA LANÇAMENTO DE DEPÓSITOS
+GERENCIAMENTO
+
+
+
+ABA DESPESAS
+
+
+VENDAS
+PEDIDO / ROMANEIO
+CÓDIGO DO PEDIDO COMEÇANDO COM 100
+--}}

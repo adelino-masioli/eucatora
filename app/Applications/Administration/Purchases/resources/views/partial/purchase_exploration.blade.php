@@ -72,28 +72,28 @@
 
 
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading text-uppercase panel-heading-sm text-center"><strong>Produto</strong></div>
                         <div class="panel-body panel-body-sm">
                             <div class="row">
-                                <div class="form-group form-group-xs margin-bottom-0 col-lg-12">
-                                    {!! Form::label('exploration_wood_shoring', 'Madeira para escoramento(Dz)') !!}
-                                    {!! Form::text('exploration_wood_shoring',  null, array('id'=>'exploration_wood_shoring', 'class'=>'form-control input-sm', 'placeholder'=>'Madeira para escoramento')) !!}
+                                <div class="form-group form-group-xs margin-bottom-0 col-lg-4">
+                                    {!! Form::label('exploration_wood_shoring', 'Madeira(Mt)') !!}
+                                    {!! Form::text('exploration_wood_shoring',  null, array('id'=>'exploration_wood_shoring', 'class'=>'form-control input-sm', 'placeholder'=>'Madeira')) !!}
                                 </div>
-                                <div class="form-group form-group-xs margin-bottom-0 col-lg-12">
-                                    {!! Form::label('exploration_wood_scaffolding', 'Madeira para andaime(Dz)') !!}
-                                    {!! Form::text('exploration_wood_scaffolding',  null, array('id'=>'exploration_wood_scaffolding', 'class'=>'form-control input-sm', 'placeholder'=>'Madeira para andaime')) !!}
+                                <div class="form-group form-group-xs margin-bottom-0 col-lg-4">
+                                    {!! Form::label('exploration_wood_scaffolding', 'Madeira para escoramento(Mt)') !!}
+                                    {!! Form::text('exploration_wood_scaffolding',  null, array('id'=>'exploration_wood_scaffolding', 'class'=>'form-control input-sm', 'placeholder'=>'Madeira para escoramento')) !!}
                                 </div>
-                                <div class="form-group form-group-xs margin-bottom-0 col-lg-12">
-                                    {!! Form::label('exploration_wood_moiroes', 'Moirões(Dz)') !!}
+                                <div class="form-group form-group-xs margin-bottom-0 col-lg-4">
+                                    {!! Form::label('exploration_wood_moiroes', 'Moirões(Mt)') !!}
                                     {!! Form::text('exploration_wood_moiroes',  null, array('id'=>'exploration_wood_moiroes', 'class'=>'form-control input-sm', 'placeholder'=>'Moirões')) !!}
                                 </div>
-                                <div class="form-group form-group-xs margin-bottom-0 col-lg-12">
-                                    {!! Form::label('exploration_wood_firewood', 'Lenha(Dz)') !!}
+                                <div class="form-group form-group-xs margin-bottom-0 col-lg-4">
+                                    {!! Form::label('exploration_wood_firewood', 'Lenha(Mt)') !!}
                                     {!! Form::text('exploration_wood_firewood',  null, array('id'=>'exploration_wood_firewood', 'class'=>'form-control input-sm', 'placeholder'=>'Lenha')) !!}
                                 </div>
-                                <div class="form-group form-group-xs margin-bottom-0 col-lg-12">
+                                <div class="form-group form-group-xs margin-bottom-0 col-lg-4">
                                     {!! Form::label('exploration_wood_sawmill', 'Madeira para serraria') !!}<br/>
 
                                     <div class="row">
@@ -101,13 +101,13 @@
                                         <div class="col-lg-6">{!! Form::text('exploration_wood_sawmill_tulls',  null, array('id'=>'exploration_wood_sawmill_tulls', 'class'=>'form-control input-sm', 'placeholder'=>'Toretes')) !!}</div>
                                     </div>
                                 </div>
-                                <div class="form-group form-group-xs margin-bottom-0 col-lg-12">
+                                <div class="form-group form-group-xs margin-bottom-0 col-lg-4 hidden">
                                     {!! Form::label('exploration_wood_cellulose', 'Madeira para celulose(&#179;)') !!}
                                     {!! Form::text('exploration_wood_cellulose',  null, array('id'=>'exploration_wood_cellulose', 'class'=>'form-control input-sm', 'placeholder'=>'Madeira para celulose')) !!}
                                 </div>
-                                <div class="form-group form-group-xs margin-bottom-0 col-lg-12">
-                                    {!! Form::label('exploration_wood_other', 'Outros') !!}
-                                    {!! Form::text('exploration_wood_other',  null, array('id'=>'exploration_wood_other', 'class'=>'form-control input-sm', 'placeholder'=>'Outros')) !!}
+                                <div class="form-group form-group-xs margin-bottom-0 col-lg-4">
+                                    {!! Form::label('exploration_wood_other', 'Carvão(Mt)') !!}
+                                    {!! Form::text('exploration_wood_other',  null, array('id'=>'exploration_wood_other', 'class'=>'form-control input-sm', 'placeholder'=>'Carvão(Mt)')) !!}
                                 </div>
 
                             </div>{{--end exploration products--}}
@@ -115,7 +115,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8">
+                <div class="col-lg-8 hidden">
                     <div class="panel panel-default">
                         <div class="panel-heading text-uppercase panel-heading-sm text-center"><strong>Volume por essência</strong></div>
                         <div class="panel-body panel-body-sm">

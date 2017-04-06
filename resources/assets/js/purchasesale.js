@@ -279,6 +279,36 @@ function addShipping(url) {
 }
 
 
+function addDiscount(url) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {product_id: $('#product_id').val(),
+            discount  : $('#discount').val(),
+            sale_id      : $('#sale_id').val(),
+            '_token'     : $('#_token').val()},
+        success: function (data) {
+            obj = JSON.parse(data);
+            if (obj.status == true) {
+                $('#tbl_subtotal').html(obj.subtotal);
+                $('#tbl_total').html(obj.total);
+
+                //show alert success
+                notifyAlerts(obj.response, 'fa fa-check', 'success');
+            }else{
+                notifyAlerts(obj.response,'fa fa-exclamation-circle', 'danger');
+            }
+            return false;
+        },
+        error: function (data) {
+            //show erro message and validations
+            notifyAlerts(formatErrors(data.responseJSON), 'fa fa-exclamation-circle', 'info');
+            return false;
+        }
+    });
+    return false;
+}
+
 
 function updateSaleItensTable(obj) {
     $('#tbl_subtotal').html(obj.subtotal);

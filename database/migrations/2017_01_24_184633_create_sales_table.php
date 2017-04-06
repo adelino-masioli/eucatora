@@ -23,6 +23,7 @@ class CreateSalesTable extends Migration
             $table->decimal('total_meters', 10,2);
             $table->decimal('price_shipp', 10,2);
             $table->text('description');
+            $table->integer('discount')->nullable();
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->integer('status_id')->unsigned();

@@ -30,6 +30,8 @@ interface SalesRepositoryInterface
 
     public function updateShipp($request);
 
+    public function updatediscount($request);
+
     public function destroy();
 
     public function addItem($request);

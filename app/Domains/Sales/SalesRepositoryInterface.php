@@ -38,5 +38,9 @@ interface SalesRepositoryInterface
 
     public function destroyItem();
 
+    public function addPayment($request);
+
+    public function destroyPayment();
+
     public function exportpdf($id);
 }

@@ -9,11 +9,12 @@
     {!! Form::close() !!}
 
     <input type="hidden" id="pathdestroy" name="pathdestroy" value="{{url('dashboard/sale/destroy-item/')}}">
+    <input type="hidden" id="pathdestroypayment" name="pathdestroypayment" value="{{url('dashboard/sale/destroy-payment/')}}">
 @stop
 @push('scripts')
     {{HelperJS::select_drowdown('select', 'btn-default', 8)}}
     {{HelperJS::combo_products(url('dashboard/product/filter-by-id'), 'product_id')}}
-    {{HelperJS::mask_money('#meters,  #price_total,  #price_unit, #price_shipp, #discount')}}
+    {{HelperJS::mask_money('#meters,  #price_total,  #price_unit, #price_shipp, #discount, #sale_pay_value')}}
     <script>
 
         function updateTotal() {

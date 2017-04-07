@@ -107,8 +107,10 @@ class SalesRepository implements SalesRepositoryInterface
         $customer      = Customer::where('id', $sale->customer_id)->first();
         $products      = $compact['products'];
         $sales_itens   = SaleItem::where('sale_id', $compact['id'])->get();
+        $sales_payments   = SalePayment::where('sale_id', $compact['id'])->get();
 
-        return view('sales::edit', compact('sale', 'customer', 'customers', 'products', 'sales_itens'));
+
+        return view('sales::edit', compact('sale', 'customer', 'customers', 'products', 'sales_itens','sales_payments'));
     }
     public function update($request)
     {
@@ -317,7 +319,85 @@ class SalesRepository implements SalesRepositoryInterface
             ->where('sale_id', $sale_id)
             ->sum('price_total');
 
-        return AppHelper::money_br($sale_itens_subtotal - $sale_sale_shipp - $sale_sale_discount);
+        if($sale_itens_subtotal > 0){
+            return AppHelper::money_br($sale_itens_subtotal - $sale_sale_shipp - $sale_sale_discount);
+        }else{
+            return '0,00';
+        }
+
+    }
+
+
+
+    //addPayment on purchases
+    public function addPayment($request)
+    {
+        try{
+            $array = new SalePayment([
+                'sale_pay_type'     => $request->sale_pay_type,
+                'sale_pay_number'   => $request->sale_pay_number,
+                'sale_pay_value'    => AppHelper::money_reverse($request->sale_pay_value),
+                'sale_pay_date'     => AppHelpers::date_universal($request->sale_pay_date),
+                'sale_id'           => $request->sale_id,
+            ]);
+            if ($array->save()):
+                $sale_payments = SalesRepository::listPayments($request->sale_id);
+                $msg = ['status'=>1, 'response'=>\Lang::get('messages.successsave'), 'result'=>$sale_payments];
+                return json_encode($msg);
+            else:
+                $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsave')];
+                return json_encode($msg);
+            endif;
+        }catch(\Exception $e){
+            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errorsave')];
+            return json_encode($msg);
+        }
+    }
+    //destroyPayment on purchases
+    public function destroyPayment()
+    {
+        $id = \Request::input('id');
+        $saleitem = SalePayment::findOrFail($id);
+        $saleitem->delete();
+
+        $sale_payments = SalesRepository::listPayments($saleitem->sale_id);
+        $msg = ['status'=>1, 'response'=>\Lang::get('messages.successdestroy'), 'result'=>$sale_payments];
+        return json_encode($msg);
+
+        exit();
+        try{
+            $saleitem = SalePayment::findOrFail($id);
+            $saleitem->delete();
+
+            $sale_payments = SalesRepository::listPayments($saleitem->sale_id);
+            $msg = ['status'=>1, 'response'=>\Lang::get('messages.successdestroy'), 'result'=>$sale_payments];
+            return json_encode($msg);
+        }catch(\Exception $e){
+            $msg = ['status'=>2, 'response'=>\Lang::get('messages.errordestroy')];
+            return json_encode($msg);
+        }
+    }
+
+
+    public function listPayments($sale_id)
+    {
+        $sale_payments   = SalePayment::select('id', 'sale_pay_type', 'sale_pay_number', 'sale_pay_value',  'sale_pay_date',  'sale_id')
+            ->where('sale_id', $sale_id)
+            ->orderBy('id');
+
+
+        foreach($sale_payments ->get() as $key => $value) {
+            $results[$key]['id'] = $value->id;
+            $results[$key]['sale_pay_type'] = $value->sale_pay_type;
+            $results[$key]['sale_pay_number'] = $value->sale_pay_number;
+            $results[$key]['sale_pay_value'] = AppHelpers::money_br($value->sale_pay_value);
+            $results[$key]['sale_pay_date'] = AppHelpers::date_only_br($value->sale_pay_date);
+        }
+        if($sale_payments->count() > 0) {
+            return $results;
+        }else{
+            return [];
+        }
     }
 
 

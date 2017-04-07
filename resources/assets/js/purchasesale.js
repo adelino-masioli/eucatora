@@ -329,3 +329,82 @@ function updateSaleItensTable(obj) {
     });
     $('#showResult').append(div);
 }
+
+
+
+function addPaymentSale(url) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            sale_pay_type    : $('#sale_pay_type').val(),
+            sale_pay_number  : $('#sale_pay_number').val(),
+            sale_pay_value   : $('#sale_pay_value').val(),
+            sale_pay_date    : $('#sale_pay_date').val(),
+            sale_id          : $('#sale_id').val(),
+            '_token'         : $('#_token').val()},
+        success: function (data) {
+            obj = JSON.parse(data);
+            if (obj.status == true) {
+                if(obj.result){
+                    updateSalePaymentsTable(obj);
+                }
+                //show alert success
+                notifyAlerts(obj.response, 'fa fa-check', 'success');
+            }else{
+                notifyAlerts(obj.response,'fa fa-exclamation-circle', 'danger');
+            }
+            return false;
+        },
+        error: function (data) {
+            //show erro message and validations
+            notifyAlerts(formatErrors(data.responseJSON), 'fa fa-exclamation-circle', 'info');
+            return false;
+        }
+    });
+    return false;
+}
+
+function destroySalePayment(url, id) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {id: id, '_token' : $('#_token').val()},
+        success: function (data) {
+            obj = JSON.parse(data);
+            if (obj.status == true) {
+                if(obj.result){
+                    updateSalePaymentsTable(obj);
+                }
+                //show alert success
+                notifyAlerts(obj.response, 'fa fa-check', 'success');
+            }else{
+                notifyAlerts(obj.response,'fa fa-exclamation-circle', 'danger');
+            }
+            return false;
+        },
+        error: function (data) {
+            //show erro message and validations
+            notifyAlerts(formatErrors(data.responseJSON), 'fa fa-exclamation-circle', 'info');
+            return false;
+        }
+    });
+    return false;
+}
+
+
+function updateSalePaymentsTable(obj) {
+    $('#showResultPayments').html('');
+    var div     = '';
+    $.each(obj.result, function (i, val) {
+        div += '<tr>';
+        div += '<td class="col-md-1 text-center"><a href="javascript:void(0);" onclick="destroySalePayment(\''+$('#pathdestroypayment').val()+'\', \''+val.id+'\');" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
+        div += '<td class="col-md-1 text-center">'+val.id+'</td>';
+        div += '<td class="col-md-6 text-center">'+val.sale_pay_type+'</td>';
+        div += '<td class="col-md-1 text-left">'+val.sale_pay_number+'</td>';
+        div += '<td class="col-md-2 text-center">'+val.sale_pay_value+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.sale_pay_date+'</td>';
+        div += '</tr>';
+    });
+    $('#showResultPayments').append(div);
+}

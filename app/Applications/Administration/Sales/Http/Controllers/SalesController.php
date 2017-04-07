@@ -11,6 +11,7 @@ use App\Applications\Administration\Base\Http\Controllers\BaseController;
 use App\Applications\Administration\Sales\Requests\SaleDiscountFormRequest;
 use App\Applications\Administration\Sales\Requests\SaleFormRequest;
 use App\Applications\Administration\Sales\Requests\SaleItemFormRequest;
+use App\Applications\Administration\Sales\Requests\SalePaymentFormRequest;
 use App\Applications\Administration\Sales\Requests\SaleShippFormRequest;
 
 
@@ -77,6 +78,13 @@ class SalesController extends BaseController
     }
     public function destroyItem(){
         return $this->sales->destroyItem();
+    }
+
+    public function addPayment(SalePaymentFormRequest $request){
+        return $this->sales->addPayment($request);
+    }
+    public function destroyPayment(){
+        return $this->sales->destroyPayment();
     }
 
     public function exportpdf($id)

@@ -400,9 +400,9 @@ function updateSalePaymentsTable(obj) {
         div += '<tr>';
         div += '<td class="col-md-1 text-center"><a href="javascript:void(0);" onclick="destroySalePayment(\''+$('#pathdestroypayment').val()+'\', \''+val.id+'\');" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
         div += '<td class="col-md-1 text-center">'+val.id+'</td>';
-        div += '<td class="col-md-6 text-center">'+val.sale_pay_type+'</td>';
-        div += '<td class="col-md-1 text-left">'+val.sale_pay_number+'</td>';
-        div += '<td class="col-md-2 text-center">'+val.sale_pay_value+'</td>';
+        div += '<td class="col-md-6 text-left">'+val.sale_pay_type+'</td>';
+        div += '<td class="col-md-1 text-center">'+val.sale_pay_number+'</td>';
+        div += '<td class="col-md-2 text-right">'+val.sale_pay_value+'</td>';
         div += '<td class="col-md-1 text-center">'+val.sale_pay_date+'</td>';
         div += '</tr>';
     });

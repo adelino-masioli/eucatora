@@ -85,6 +85,29 @@
         <td class="align-right" colspan="1"><strong>{{AppHelper::money_br($total - $sale->price_shipp)}}</strong></td>
     </tr>
     </tbody>
+
+
+
+    <tbody>
+    <tr id="dispoheader">
+        <th style="background: #cccccc;" class="borderright">ID</th>
+        <th colspan="4" style="background: #cccccc;" class="borderright">FORMA DE PAGAMENTO</th>
+        <th style="background: #cccccc;" class="borderright">PARCELA</th>
+        <th style="background: #cccccc;" class="borderright">VALOR</th>
+        <th style="background: #cccccc;" class="borderright">VENCIMENTO</th>
+    </tr>
+    </tbody>
+    <tbody>
+    @foreach($payments as $payment)
+        <tr id="dispoheader">
+            <td class="borderright">{{$payment->id}}</td>
+            <td colspan="4" class="borderrightonly">{{$payment->sale_pay_type}}</td>
+            <td class="borderright">{{$payment->sale_pay_number}}</td>
+            <td class="borderright2">{{AppHelper::money_br($payment->sale_pay_value)}}</td>
+            <td class="borderright">{{AppHelper::date_only_br($payment->sale_pay_date)}}</td>
+
+    @endforeach
+    </tbody>
 </table>
 
 </body>

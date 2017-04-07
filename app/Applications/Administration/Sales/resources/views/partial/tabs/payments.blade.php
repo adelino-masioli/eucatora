@@ -9,8 +9,8 @@
                 </div>
 
                 <div class="form-group margin-bottom-0 col-lg-2">
-                    {!! Form::label('sale_pay_number', 'Parcela(s)') !!}
-                    {!! Form::text('sale_pay_number', null, array('id'=>'sale_pay_number', 'class'=>'form-control input-sm', 'placeholder'=>'Parcela(s)', 'onclick'=>'onlyNumber(\'#sale_pay_number\')')) !!}
+                    {!! Form::label('sale_pay_number', 'Parcela') !!}
+                    {!! Form::text('sale_pay_number', null, array('id'=>'sale_pay_number', 'class'=>'form-control input-sm', 'placeholder'=>'Parcela', 'onclick'=>'onlyNumber(\'#sale_pay_number\')')) !!}
                 </div>
                 <div class="form-group margin-bottom-0 col-lg-2">
                     {!! Form::label('sale_pay_value', 'Valor') !!}

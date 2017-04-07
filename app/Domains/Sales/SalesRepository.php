@@ -407,8 +407,9 @@ class SalesRepository implements SalesRepositoryInterface
     {
         $sale = Sale::select('*')->where('id', $id)->first();
         $item = SaleItem::select('*')->where('sale_id', $sale->id)->get();
+        $payments = SalePayment::select('*')->where('sale_id', $sale->id)->get();
 
-        $pdf = \PDF::loadView('sales::export.pdf', compact('sale', 'item'))->setPaper('a4', 'portrait');
+        $pdf = \PDF::loadView('sales::export.pdf', compact('sale', 'item', 'payments'))->setPaper('a4', 'portrait');
         return $pdf->download(date('Y-m-d H:i:s').'.pdf');
     }
 

@@ -411,6 +411,7 @@ class SalesRepository implements SalesRepositoryInterface
 
         $pdf = \PDF::loadView('sales::export.pdf', compact('sale', 'item', 'payments'))->setPaper('a4', 'portrait');
         return $pdf->download(date('Y-m-d H:i:s').'.pdf');
+        //return view('sales::export.pdf', compact('sale', 'item', 'payments'));
     }
 
 }

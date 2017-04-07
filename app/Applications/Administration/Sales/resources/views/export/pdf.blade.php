@@ -22,6 +22,7 @@
         .borderright{border-right:0.3pt solid #666666;text-align: center!important;}
         .borderright2{border-right:0.3pt solid #666666;text-align: right!important;}
         .ptotal{font-size: 3mm!important;font-weight: bolder;}
+        small{font-size: 6pt!important;}
     </style>
 </head>
 <body>
@@ -31,14 +32,15 @@
 <table>
     <tbody>
         <tr id="dispoheader">
-            <td colspan="4" class="borderrightonly">NOME DO CLINETE: {{$sale->customer->name}}</td>
-            <td colspan="2" class="borderrightonly">TELEFONE: {{$sale->customer->phone}}</td>
-            <td colspan="2" >CELULAR: {{$sale->customer->celullar}}</td>
+            <td colspan="1" class="borderrightonly"><small>DATA:</small> <br/>{{AppHelper::date_only_br($sale->date)}}</td>
+            <td colspan="3" class="borderrightonly"><small>NOME DO CLINETE:</small> <br/>{{$sale->customer->name}}</td>
+            <td colspan="2" class="borderrightonly"><small>TELEFONE:</small> <br/>{{$sale->customer->phone}}</td>
+            <td colspan="2" ><small>CELULAR:</small> <br/>{{$sale->customer->celullar}}</td>
         </tr>
         <tr id="dispoheader">
-            <td  style="margin-bottom: 20px!important;" colspan="4" class="borderrightonly">ENDEREÇO: {{$sale->customer->address}}, {{$sale->customer->number}} {{$sale->customer->complement}}</td>
-            <td  style="margin-bottom: 20px!important;" colspan="2" class="borderrightonly">BAIRRO: {{$sale->customer->neighborhood}}</td>
-            <td  style="margin-bottom: 20px!important;" colspan="2">CIDADE/UF: {{$sale->customer->city->name}}, {{$sale->customer->state->uf}}</td>
+            <td  style="margin-bottom: 20px!important;" colspan="4" class="borderrightonly"><small>ENDEREÇO:</small> <br/>{{$sale->customer->address}}, {{$sale->customer->number}} {{$sale->customer->complement}}</td>
+            <td  style="margin-bottom: 20px!important;" colspan="2" class="borderrightonly"><small>BAIRRO:</small> <br/>{{$sale->customer->neighborhood}}</td>
+            <td  style="margin-bottom: 20px!important;" colspan="2"><small>CIDADE/UF:</small> <br/>{{$sale->customer->city->name}}, {{$sale->customer->state->uf}}</td>
         </tr>
     </tbody>
 
